@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:word_search_app/puzzle_builder.dart';
 
 class WordSearchHighlight extends StatelessWidget {
     const WordSearchHighlight({
@@ -13,6 +14,23 @@ class WordSearchHighlight extends StatelessWidget {
         required this.endX,
         required this.endY,
     });
+
+    static WordSearchHighlight fromPlacement({
+        required puzzleRows,
+        required puzzleColumns,
+        required constraints,
+        required Placement placement
+    }) {
+        return WordSearchHighlight(
+            puzzleRows: puzzleRows,
+            puzzleColumns: puzzleColumns,
+            constraints: constraints,
+            startX: placement.column,
+            startY: placement.row,
+            endX: placement.column + placement.direction.dx * (placement.word.length - 1),
+            endY: placement.row + placement.direction.dy * (placement.word.length - 1)
+        );
+    }
 
     final BoxConstraints constraints;
     final int puzzleRows;
