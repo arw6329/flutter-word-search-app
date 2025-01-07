@@ -17,8 +17,6 @@ class WordSearchPuzzle extends StatefulWidget {
 }
 
 class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
-    final List<WordSearchHighlight> _highlights = [];
-
     int? _pointerX;
     int? _pointerY;
 
@@ -59,6 +57,29 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
       });
     }
 
+    _getHighlights(BoxConstraints constraints) {
+        return [
+            if(_activeHighlightStartX != null) WordSearchHighlight(
+                constraints: constraints,
+                puzzleRows: widget.rows,
+                puzzleColumns: widget.columns,
+                startX: _activeHighlightStartX!,
+                startY: _activeHighlightStartY!,
+                endX: _activeHighlightEndX!,
+                endY: _activeHighlightEndY!
+            ),
+            ...widget._puzzleBuilder.placements.map((placement) => WordSearchHighlight(
+                constraints: constraints,
+                puzzleRows: widget.rows,
+                puzzleColumns: widget.columns,
+                startX: placement.column,
+                startY: placement.row,
+                endX: placement.column + placement.direction.dy * (placement.word.length - 1),
+                endY: placement.row + placement.direction.dx * (placement.word.length - 1)
+            ))
+        ];
+    }
+
     @override
     Widget build(BuildContext context) {
         return Container(
@@ -72,28 +93,7 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                           child: LayoutBuilder(
                               builder: (BuildContext context, BoxConstraints constraints) {
                                   return Stack(
-                                      children: _activeHighlightStartX != null
-                                        ? [
-                                          WordSearchHighlight(
-                                              constraints: constraints,
-                                              puzzleRows: widget.rows,
-                                              puzzleColumns: widget.columns,
-                                              startX: _activeHighlightStartX!,
-                                              startY: _activeHighlightStartY!,
-                                              endX: _activeHighlightEndX!,
-                                              endY: _activeHighlightEndY!
-                                          ),
-                                          ..._highlights
-                                        ]
-                                        : widget._puzzleBuilder.placements.map((placement) => WordSearchHighlight(
-                                              constraints: constraints,
-                                              puzzleRows: widget.rows,
-                                              puzzleColumns: widget.columns,
-                                              startX: placement.column,
-                                              startY: placement.row,
-                                              endX: placement.column + placement.direction.dy * (placement.word.length - 1),
-                                              endY: placement.row + placement.direction.dx * (placement.word.length - 1)
-                                          )).toList()
+                                      children: _getHighlights(constraints)
                                   );
                               },
                           ),
