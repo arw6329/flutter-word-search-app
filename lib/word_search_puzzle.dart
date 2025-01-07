@@ -62,38 +62,12 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
     @override
     Widget build(BuildContext context) {
         return Container(
-            color: Colors.red,
+            color: Colors.white,
             margin: EdgeInsets.all(5),
             child: Container(
                 padding: EdgeInsets.all(5),
                 child: Stack(
                     children: [
-                        Listener(
-                          onPointerDown: _startHighlight,
-                          onPointerUp: _cancelHighlight,
-                          onPointerCancel: _cancelHighlight,
-                          child: GridView.count(
-                              childAspectRatio: 1,
-                              crossAxisCount: widget.columns,
-                              shrinkWrap: true,
-                              children: List.generate(widget.rows * widget.columns, (index) {
-                                  var row = (index / widget.columns).floor();
-                                  var column = index % widget.columns;
-                                          
-                                  return MouseRegion(
-                                    onEnter: (_) {
-                                      _setPointerLocation(row, column);
-                                    },
-                                    child: Container(
-                                      color: Colors.blue,
-                                      child: Center(
-                                          child: Text(widget._puzzleBuilder.charAt(row, column) ?? 'X')
-                                      ),
-                                    )
-                                  );
-                              })
-                          ),
-                        ),
                         IgnorePointer(
                           child: LayoutBuilder(
                               builder: (BuildContext context, BoxConstraints constraints) {
@@ -122,6 +96,29 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                                           )).toList()
                                   );
                               },
+                          ),
+                        ),
+                        Listener(
+                          onPointerDown: _startHighlight,
+                          onPointerUp: _cancelHighlight,
+                          onPointerCancel: _cancelHighlight,
+                          child: GridView.count(
+                              childAspectRatio: 1,
+                              crossAxisCount: widget.columns,
+                              shrinkWrap: true,
+                              children: List.generate(widget.rows * widget.columns, (index) {
+                                  var row = (index / widget.columns).floor();
+                                  var column = index % widget.columns;
+                                          
+                                  return MouseRegion(
+                                    onEnter: (_) {
+                                      _setPointerLocation(row, column);
+                                    },
+                                    child: Center(
+                                        child: Text(widget._puzzleBuilder.charAt(row, column) ?? 'X')
+                                    )
+                                  );
+                              })
                           ),
                         )
                     ]

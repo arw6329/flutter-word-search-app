@@ -48,7 +48,7 @@ class WordSearchHighlight extends StatelessWidget {
                 child: Container(
                     decoration: BoxDecoration(
                         borderRadius: isDiagonal ? null : BorderRadius.circular(cellSize / 2),
-                        color: Colors.orange
+                        color: Color.fromRGBO(255, 0, 0, 0.5)
                     ),
                     margin: EdgeInsets.all(spaceBetweenHlAndCellBounds),
                     width: isVertical ? cellSize * hlWidthAsPercentageOfCell : cellSize * ((endX - startX).abs() + 1) - spaceBetweenHlAndCellBounds * 2,
