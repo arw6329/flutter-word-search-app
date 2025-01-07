@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:word_search_app/puzzle_builder.dart';
 import 'package:word_search_app/word_search_highlight.dart';
 
 class WordSearchPuzzle extends StatefulWidget {
-  const WordSearchPuzzle({super.key, required this.rows, required this.columns});
+  WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words}):
+    _puzzleBuilder = PuzzleBuilder(rows: rows, columns: columns, words: words);
 
   final int rows;
   final int columns;
+  final List<String> words;
+
+  final PuzzleBuilder _puzzleBuilder;
 
   @override
   State<WordSearchPuzzle> createState() => _WordSearchPuzzleState();
@@ -82,7 +87,7 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                                     child: Container(
                                       color: Colors.blue,
                                       child: Center(
-                                          child: Text('X')
+                                          child: Text(widget._puzzleBuilder.charAt(row, column) ?? 'X')
                                       ),
                                     )
                                   );
@@ -106,7 +111,15 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                                           ),
                                           ..._highlights
                                         ]
-                                        : _highlights
+                                        : widget._puzzleBuilder.placements.map((placement) => WordSearchHighlight(
+                                              constraints: constraints,
+                                              puzzleRows: widget.rows,
+                                              puzzleColumns: widget.columns,
+                                              startX: placement.column,
+                                              startY: placement.row,
+                                              endX: placement.column + placement.direction.dy * (placement.word.length - 1),
+                                              endY: placement.row + placement.direction.dx * (placement.word.length - 1)
+                                          )).toList()
                                   );
                               },
                           ),
