@@ -98,10 +98,17 @@ class PuzzleBuilder {
 
             _writePlacement(bestPlacement);
         }
+
+        for(var row = 0; row < rows; row++) {
+            for(var column = 0; column < columns; column++) {
+                if(_puzzle[row][column] == null) {
+                    _puzzle[row][column] = randomLetter().codeUnitAt(0);
+                }
+            }
+        }
     }
 
     charAt(int row, int column) {
-        final charCode = _puzzle[row][column];
-        return charCode != null ? String.fromCharCode(charCode) : null;
+        return String.fromCharCode(_puzzle[row][column]!);
     }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:word_search_app/puzzle_builder.dart';
-import 'package:word_search_app/util/random.dart';
 import 'package:word_search_app/word_search_highlight.dart';
 
 class WordSearchPuzzle extends StatefulWidget {
@@ -116,7 +115,7 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                                       _setPointerLocation(row, column);
                                     },
                                     child: Center(
-                                        child: Text(widget._puzzleBuilder.charAt(row, column) ?? randomLetter())
+                                        child: Text(widget._puzzleBuilder.charAt(row, column))
                                     )
                                   );
                               })
