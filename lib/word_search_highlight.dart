@@ -31,6 +31,11 @@ class WordSearchHighlight extends StatelessWidget {
         var isDiagonal = startX != endX && startY != endY;
         var isDiagBackslash = isDiagonal && (endX - startX).isNegative == (endY - startY).isNegative;
         var isDiagForwardSlash = isDiagonal && (endX - startX).isNegative != (endY - startY).isNegative;
+        var isHorizontal = startY == endY;
+        var isVertical = startX == endX;
+
+        const hlWidthAsPercentageOfCell = 0.7;
+        final spaceBetweenHlAndCellBounds = (cellSize - (cellSize * hlWidthAsPercentageOfCell)) / 2;
 
         return Container(
             margin: EdgeInsets.fromLTRB(left, top, 0, 0),
@@ -45,8 +50,9 @@ class WordSearchHighlight extends StatelessWidget {
                         borderRadius: isDiagonal ? null : BorderRadius.circular(cellSize / 2),
                         color: Colors.orange
                     ),
-                    width: cellSize * ((endX - startX).abs() + 1),
-                    height: cellSize * ((endY - startY).abs() + 1),
+                    margin: EdgeInsets.all(spaceBetweenHlAndCellBounds),
+                    width: isVertical ? cellSize * hlWidthAsPercentageOfCell : cellSize * ((endX - startX).abs() + 1) - spaceBetweenHlAndCellBounds * 2,
+                    height: isHorizontal ? cellSize * hlWidthAsPercentageOfCell : cellSize * ((endY - startY).abs() + 1) - spaceBetweenHlAndCellBounds * 2,
                 )
             )
         );
@@ -60,16 +66,16 @@ class BackslashDiagClipper extends CustomClipper<Path> {
 
     @override
     Path getClip(Size size) {
-        var roundedEndRadius = cellSize / 2;
-        var centerUpperLeftCell = Offset(size.width - roundedEndRadius, size.height - roundedEndRadius);
-        var centerLowerRightCell = Offset(roundedEndRadius, roundedEndRadius);
+        var roundedEndRadius = cellSize / 2.85;
+        var centerLowerRightCell = Offset(size.width - cellSize / 2, size.height - cellSize / 2);
+        var centerUpperLeftCell = Offset(cellSize / 2, cellSize / 2);
 
         var path = Path();
 
-        path.addArc(Rect.fromCircle(center: centerUpperLeftCell, radius: roundedEndRadius), - pi / 4, pi);
-        path.addArc(Rect.fromCircle(center: centerLowerRightCell, radius: roundedEndRadius), pi * 0.75, pi);
-        path.lineTo(centerUpperLeftCell.dx + roundedEndRadius / sqrt2, centerUpperLeftCell.dy - roundedEndRadius / sqrt2);
-        path.lineTo(centerUpperLeftCell.dx - roundedEndRadius / sqrt2, centerUpperLeftCell.dy + roundedEndRadius / sqrt2);
+        path.addArc(Rect.fromCircle(center: centerLowerRightCell, radius: roundedEndRadius), - pi / 4, pi);
+        path.addArc(Rect.fromCircle(center: centerUpperLeftCell, radius: roundedEndRadius), pi * 0.75, pi);
+        path.lineTo(centerLowerRightCell.dx + roundedEndRadius / sqrt2, centerLowerRightCell.dy - roundedEndRadius / sqrt2);
+        path.lineTo(centerLowerRightCell.dx - roundedEndRadius / sqrt2, centerLowerRightCell.dy + roundedEndRadius / sqrt2);
         path.close();
 
         return path;
@@ -88,9 +94,9 @@ class ForwardSlashDiagClipper extends CustomClipper<Path> {
 
     @override
     Path getClip(Size size) {
-        var roundedEndRadius = cellSize / 2;
-        var centerLowerLeftCell = Offset(roundedEndRadius, size.height - roundedEndRadius);
-        var centerUpperRightCell = Offset(size.width - roundedEndRadius, roundedEndRadius);
+        var roundedEndRadius = cellSize / 2.85;
+        var centerLowerLeftCell = Offset(cellSize / 2, size.height - cellSize / 2);
+        var centerUpperRightCell = Offset(size.width - cellSize / 2, cellSize / 2);
 
         var path = Path();
 
