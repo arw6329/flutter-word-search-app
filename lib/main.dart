@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:word_search_app/word_search_puzzle.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            WordSearchPuzzle(rows: 10, columns: 15)
           ],
         ),
       ),
