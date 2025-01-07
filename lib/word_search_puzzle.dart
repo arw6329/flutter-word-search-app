@@ -74,8 +74,8 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                 puzzleColumns: widget.columns,
                 startX: placement.column,
                 startY: placement.row,
-                endX: placement.column + placement.direction.dy * (placement.word.length - 1),
-                endY: placement.row + placement.direction.dx * (placement.word.length - 1)
+                endX: placement.column + placement.direction.dx * (placement.word.length - 1),
+                endY: placement.row + placement.direction.dy * (placement.word.length - 1)
             ))
         ];
     }

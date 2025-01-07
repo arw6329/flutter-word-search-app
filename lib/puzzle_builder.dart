@@ -39,8 +39,8 @@ class PuzzleBuilder {
         var score = 1;
 
         for(final (i, charCode) in word.runes.indexed) {
-            int _row = row + direction.dx * i;
-            int _column = column + direction.dy * i;
+            int _row = row + direction.dy * i;
+            int _column = column + direction.dx * i;
 
             // skip if placement goes out of bounds of puzzle
             if(_row < 0 || _row >= rows || _column < 0 || _column >= columns) {
@@ -63,8 +63,8 @@ class PuzzleBuilder {
 
     _writePlacement(Placement placement) {
         for(final (i, charCode) in placement.word.runes.indexed) {
-            int _row = placement.row + placement.direction.dx * i;
-            int _column = placement.column + placement.direction.dy * i;
+            int _row = placement.row + placement.direction.dy * i;
+            int _column = placement.column + placement.direction.dx * i;
 
             _puzzle[_row][_column] = charCode;
         }
