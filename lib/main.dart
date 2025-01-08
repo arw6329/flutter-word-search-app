@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:word_search_app/word_search_puzzle.dart';
+import 'package:word_search_app/word_search.dart';
 
 const words = [
     'Brazil',
@@ -35,7 +35,10 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
             title: 'Flutter Demo',
             theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                colorScheme: ColorScheme.fromSeed(
+                    seedColor: Colors.deepPurple,
+                    brightness: Brightness.dark
+                ),
                 useMaterial3: true,
             ),
             home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -55,14 +58,7 @@ class MyHomePage extends StatelessWidget {
                 title: Text(title),
             ),
             body: Center(
-                child: Flex(
-                    direction: Axis.vertical,
-                    children: [
-                        Flexible(
-                            child: WordSearchPuzzle(rows: 15, columns: 12, words: words)
-                        )
-                    ]
-                )
+                child: WordSearch(rows: 15, columns: 12, words: words)
             )
         );
     }

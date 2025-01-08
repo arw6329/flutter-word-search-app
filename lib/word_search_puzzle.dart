@@ -6,19 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:word_search_app/puzzle_builder.dart';
 import 'package:word_search_app/word_search_highlight.dart';
 
-List<String> normalizeWords(List<String> words) {
-    return words.map((word) => word.toUpperCase()).toList();
-}
-
 class WordSearchPuzzle extends StatefulWidget {
-    WordSearchPuzzle({super.key, required this.rows, required this.columns, required List<String> words}):
-        _words = normalizeWords(words),
-        _puzzleBuilder = PuzzleBuilder(rows: rows, columns: columns, words: normalizeWords(words));
+    WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required this.onSolveWord}):
+        _puzzleBuilder = PuzzleBuilder(rows: rows, columns: columns, words: words);
 
     final int rows;
     final int columns;
+    final List<String> words;
+    final void Function(String word) onSolveWord;
 
-    final List<String> _words;
     final PuzzleBuilder _puzzleBuilder;
 
     @override
@@ -84,13 +80,14 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                     _activeHighlightStartColumn!, _activeHighlightStartRow!, direction, length
                 );
 
-                final matchedWord = widget._words.firstWhereOrNull(
+                final matchedWord = widget.words.firstWhereOrNull(
                     (word) => word == highlightedWord || word == highlightedWord.split('').reversed.join('')
                 );
 
                 if(matchedWord != null && !_isWordSolved(matchedWord)) {
                     dev.log('Solved word $matchedWord');
                     _solvedWords.add(Placement(row: _activeHighlightStartRow!, column: _activeHighlightStartColumn!, direction: direction, word: matchedWord));
+                    widget.onSolveWord(matchedWord);
                 }
             }
 
@@ -133,7 +130,7 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
     @override
     Widget build(BuildContext context) {
         return Container(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.inverseSurface,
             margin: EdgeInsets.all(5),
             child: Container(
                 padding: EdgeInsets.all(5),
@@ -167,7 +164,13 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                                             var column = index % widget.columns;
                                                     
                                             return Center(
-                                                child: Text(widget._puzzleBuilder.charAt(row, column))
+                                                child: Text(
+                                                    widget._puzzleBuilder.charAt(row, column),
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        color: Color.fromRGBO(22, 22, 22, 1)
+                                                    ),
+                                                )
                                             );
                                         })
                                     ),
