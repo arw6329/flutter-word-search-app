@@ -1,5 +1,8 @@
 import 'dart:developer';
+import 'dart:math' as math;
 
+import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:word_search_app/util/random.dart';
 
 enum Direction {
@@ -62,6 +65,52 @@ class Placement {
     String toString() {
         return '($word at (row $row, col $column) towards (${direction.dy}, ${direction.dx}))';
     }
+
+    bool runsAdjacentTo(Placement other) {
+        const lengthLimit = 3;
+
+        bool placementsOverlap(Placement a, Placement b) {
+            return a._pointSequence().where((point) => b._containsPoint(point)).length > lengthLimit;
+        }
+
+        if (direction case Direction.LEFT || Direction.RIGHT) {
+            final above = _shift(-1, 0);
+            if(placementsOverlap(above, other)) {
+                return true;
+            }
+
+            final below = _shift(1, 0);
+            if(placementsOverlap(below, other)) {
+                return true;
+            }
+        } else {
+            final left = _shift(0, -1);
+            if(placementsOverlap(left, other)) {
+                return true;
+            }
+
+            final right = _shift(0, 1);
+            if(placementsOverlap(right, other)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    Placement _shift(int dRow, int dColumn) {
+        return Placement(row: row + dRow, column: column + dColumn, direction: direction, word: word);
+    }
+
+    bool _containsPoint((int row, int column) point) {
+        return _pointSequence().contains(point);
+    }
+
+    Iterable<(int row, int column)> _pointSequence() sync* {
+        for(var i = 0; i < word.length; i++) {
+            yield (row + direction.dy * i, column + direction.dx * i);
+        }
+    }
 }
 
 class PuzzleBuilder {
@@ -78,10 +127,20 @@ class PuzzleBuilder {
 
     final List<List<int?>> _puzzle;
 
+    Map<Direction, int> _getNumberOfPlacementsPerDirection() {
+        var map = Map.fromEntries(Direction.values.map((direction) => MapEntry(direction, 0)));
+
+        for(var placement in placements) {
+            map[placement.direction] = map[placement.direction]! + 1;
+        }
+
+        return map;
+    }
+
     // score of 0 indicates impossible placement
     // the higher the score, the better the placement
-    _scorePlacement(String word, int row, int column, Direction direction) {
-        var score = 1;
+    double _scorePlacement(String word, int row, int column, Direction direction) {
+        double score = 1;
 
         for(final (i, charCode) in word.runes.indexed) {
             int _row = row + direction.dy * i;
@@ -102,6 +161,20 @@ class PuzzleBuilder {
                 score += 1;
             }
         }
+
+        // reward placements that don't bunch up against existing ones
+        var placement = Placement(row: row, column: column, direction: direction, word: word);
+        if(placements.every((existingPlacement) => !placement.runsAdjacentTo(existingPlacement))) {
+            score += 5;
+        }
+
+        // reward placements that use all directions evenly
+        var directionCounts = _getNumberOfPlacementsPerDirection();
+        directionCounts[direction] = directionCounts[direction]! + 1;
+        final maxCount = directionCounts.values.reduce(math.max);
+        final avgCount = directionCounts.values.average;
+        double distributionScore = (avgCount / maxCount);
+        score += distributionScore * 10;
 
         return score;
     }
@@ -126,7 +199,7 @@ class PuzzleBuilder {
 
         for(final word in words) {
             Placement? bestPlacement;
-            int bestPlacementScore = 0;
+            double bestPlacementScore = 0;
 
             for(final row in randomizedRange(0, rows - 1)) {
                 for(final column in randomizedRange(0, columns - 1)) {
@@ -154,6 +227,18 @@ class PuzzleBuilder {
                     _puzzle[row][column] = randomLetter().codeUnitAt(0);
                 }
             }
+        }
+
+        if(kDebugMode) {
+            for(final placement in placements) {
+                for(final otherPlacement in placements) {
+                    if(placement.runsAdjacentTo(otherPlacement)) {
+                        log('Placements of ${placement.word} and ${otherPlacement.word} are adjacent');
+                    }
+                }
+            }
+
+            log('Number of placements of each direction: ${_getNumberOfPlacementsPerDirection().entries.toList()}');
         }
     }
 
