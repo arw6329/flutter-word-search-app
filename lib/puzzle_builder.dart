@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:word_search_app/util/random.dart';
 
 enum Direction {
@@ -55,6 +57,11 @@ class Placement {
     final int column;
     final Direction direction;
     final String word;
+
+    @override
+    String toString() {
+        return '($word at (row $row, col $column) towards (${direction.dy}, ${direction.dx}))';
+    }
 }
 
 class PuzzleBuilder {
@@ -100,6 +107,8 @@ class PuzzleBuilder {
     }
 
     _writePlacement(Placement placement) {
+        log('Writing placement $placement');
+
         for(final (i, charCode) in placement.word.runes.indexed) {
             int _row = placement.row + placement.direction.dy * i;
             int _column = placement.column + placement.direction.dx * i;
