@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:word_search_app/puzzle_builder.dart';
+import 'package:word_search_app/word_search/puzzle_builder.dart';
 
 class WordSearchHighlight extends StatelessWidget {
     const WordSearchHighlight({

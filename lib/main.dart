@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:word_search_app/word_search.dart';
+import 'package:word_search_app/word_search/widgets/word_search.dart';
 
 const words = [
     'Brazil',

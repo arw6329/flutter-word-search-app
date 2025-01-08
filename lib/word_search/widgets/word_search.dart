@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:word_search_app/word_bank.dart';
-import 'package:word_search_app/word_search_puzzle.dart';
+import 'package:word_search_app/word_search/widgets/word_bank.dart';
+import 'package:word_search_app/word_search/widgets/word_search_puzzle.dart';
 
 // maps normalized words to original word for display
 // for example { 'SOUTHKOREA': 'South Korea' }

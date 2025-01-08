@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 
 import 'package:flutter/material.dart';
-import 'package:word_search_app/puzzle_builder.dart';
-import 'package:word_search_app/word_search_highlight.dart';
+import 'package:word_search_app/word_search/puzzle_builder.dart';
+import 'package:word_search_app/word_search/widgets/word_search_highlight.dart';
 
 class WordSearchPuzzle extends StatefulWidget {
     WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required this.onSolveWord}):

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:word_search_app/word_bank_entry.dart';
+import 'package:word_search_app/word_search/widgets/word_bank_entry.dart';
 
 class WordBank extends StatelessWidget {
     const WordBank({super.key, required this.words, required this.solvedWords});
