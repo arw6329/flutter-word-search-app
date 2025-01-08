@@ -9,6 +9,7 @@ import 'package:word_search_app/word_search_highlight.dart';
 List<String> normalizeWords(List<String> words) {
     return words.map((word) => word.toUpperCase()).toList();
 }
+
 class WordSearchPuzzle extends StatefulWidget {
     WordSearchPuzzle({super.key, required this.rows, required this.columns, required List<String> words}):
         _words = normalizeWords(words),
@@ -27,77 +28,87 @@ class WordSearchPuzzle extends StatefulWidget {
 class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
     final Set<Placement> _solvedWords = {};
 
-    int? _pointerX;
-    int? _pointerY;
+    int? _activeHighlightStartRow;
+    int? _activeHighlightStartColumn;
+    int? _pointerCurrentRow;
+    int? _pointerCurrentColumn;
 
-    int? _activeHighlightStartX;
-    int? _activeHighlightStartY;
-    int? _activeHighlightEndX;
-    int? _activeHighlightEndY;
+    final GlobalKey _gridView = GlobalKey();
 
-    _setPointerLocation(int row, int column) {
-      setState(() {
-        _pointerX = column;
-        _pointerY = row;
-        
-        if(
-          _activeHighlightStartX == null
-          || _activeHighlightStartY == null
-          || _pointerX! - _activeHighlightStartX! == 0
-          || _pointerY! - _activeHighlightStartY! == 0
-          || (_pointerX! - _activeHighlightStartX!).abs() == (_pointerY! - _activeHighlightStartY!).abs()
-        ) {
-          _activeHighlightEndX = _pointerX;
-          _activeHighlightEndY = _pointerY;
-        }
-      });
+    (int row, int column) _pointerEventToRowAndColumn(PointerEvent event) {
+        final row = (event.localPosition.dy / (_gridView.currentContext!.size!.height / widget.rows))
+            .floor().clamp(0, widget.rows - 1);
+        final column = (event.localPosition.dx / (_gridView.currentContext!.size!.width / widget.columns))
+            .floor().clamp(0, widget.columns - 1);
+
+        return (row, column);
     }
 
-    _startHighlight(_) {
-      setState(() {
-        _activeHighlightStartX = _pointerX;
-        _activeHighlightStartY = _pointerY;
-      });
+    _startHighlight(pointerDownEvent) {
+        setState(() {
+            var (row, column) = _pointerEventToRowAndColumn(pointerDownEvent);
+            _activeHighlightStartRow = row;
+            _activeHighlightStartColumn = column;
+            _pointerCurrentRow = row;
+            _pointerCurrentColumn = column;
+        });
+    }
+
+    _updateHighlight(pointerMoveEvent) {
+        final (row, column) = _pointerEventToRowAndColumn(pointerMoveEvent);
+
+        final isValidLocation = column - _activeHighlightStartColumn! == 0
+            || row - _activeHighlightStartRow! == 0
+            || (column - _activeHighlightStartColumn!).abs() == (row - _activeHighlightStartRow!).abs();
+
+        final needsUpdated = row != _pointerCurrentRow || column != _pointerCurrentColumn;
+
+        if(isValidLocation && needsUpdated) {
+            setState(() {
+                _pointerCurrentRow = row;
+                _pointerCurrentColumn = column;
+            });
+        }
     }
 
     _cancelHighlight(_) {
-      setState(() {
-        if(_activeHighlightStartX != null) {
-            final direction = Direction.fromStartAndEndPoints(_activeHighlightStartX!, _activeHighlightStartY!, _activeHighlightEndX!, _activeHighlightEndY!);
-            final length = max(
-                (_activeHighlightEndX! - _activeHighlightStartX!).abs() + 1,
-                (_activeHighlightEndY! - _activeHighlightStartY!).abs() + 1
-            );
+        setState(() {
+            if(_activeHighlightStartColumn != null) {
+                final direction = Direction.fromStartAndEndPoints(_activeHighlightStartColumn!, _activeHighlightStartRow!, _pointerCurrentColumn!, _pointerCurrentRow!);
+                final length = max(
+                    (_pointerCurrentColumn! - _activeHighlightStartColumn!).abs() + 1,
+                    (_pointerCurrentRow! - _activeHighlightStartRow!).abs() + 1
+                );
 
-            var highlightedWord = widget._puzzleBuilder.sequenceAt(
-                _activeHighlightStartX!, _activeHighlightStartY!, direction, length
-            );
+                var highlightedWord = widget._puzzleBuilder.sequenceAt(
+                    _activeHighlightStartColumn!, _activeHighlightStartRow!, direction, length
+                );
 
-            final matchedWord = widget._words.firstWhereOrNull(
-                (word) => word == highlightedWord || word == highlightedWord.split('').reversed.join('')
-            );
+                final matchedWord = widget._words.firstWhereOrNull(
+                    (word) => word == highlightedWord || word == highlightedWord.split('').reversed.join('')
+                );
 
-            if(matchedWord != null && !_isWordSolved(matchedWord)) {
-                dev.log('Solved word $matchedWord');
-                _solvedWords.add(Placement(row: _activeHighlightStartY!, column: _activeHighlightStartX!, direction: direction, word: matchedWord));
+                if(matchedWord != null && !_isWordSolved(matchedWord)) {
+                    dev.log('Solved word $matchedWord');
+                    _solvedWords.add(Placement(row: _activeHighlightStartRow!, column: _activeHighlightStartColumn!, direction: direction, word: matchedWord));
+                }
             }
-        }
 
-        _activeHighlightStartX = null;
-        _activeHighlightStartY = null;
-      });
+            _activeHighlightStartColumn = null;
+            _activeHighlightStartRow = null;
+        });
     }
 
     _getHighlights(BoxConstraints constraints) {
         return [
-            if(_activeHighlightStartX != null) WordSearchHighlight(
+            if(_activeHighlightStartColumn != null) WordSearchHighlight(
                 constraints: constraints,
                 puzzleRows: widget.rows,
                 puzzleColumns: widget.columns,
-                startX: _activeHighlightStartX!,
-                startY: _activeHighlightStartY!,
-                endX: _activeHighlightEndX!,
-                endY: _activeHighlightEndY!
+                startX: _activeHighlightStartColumn!,
+                startY: _activeHighlightStartRow!,
+                endX: _pointerCurrentColumn!,
+                endY: _pointerCurrentRow!
             ),
             ..._solvedWords.map((placement) => WordSearchHighlight.fromPlacement(
                 constraints: constraints,
@@ -142,9 +153,12 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                                 ),
                                 Listener(
                                     onPointerDown: _startHighlight,
+                                    onPointerMove: _updateHighlight,
                                     onPointerUp: _cancelHighlight,
                                     onPointerCancel: _cancelHighlight,
                                     child: GridView.count(
+                                        key: _gridView,
+                                        physics: const NeverScrollableScrollPhysics(),
                                         childAspectRatio: 1,
                                         crossAxisCount: widget.columns,
                                         shrinkWrap: true,
@@ -152,13 +166,8 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                                             var row = (index / widget.columns).floor();
                                             var column = index % widget.columns;
                                                     
-                                            return MouseRegion(
-                                                onEnter: (_) {
-                                                    _setPointerLocation(row, column);
-                                                },
-                                                child: Center(
-                                                    child: Text(widget._puzzleBuilder.charAt(row, column))
-                                                )
+                                            return Center(
+                                                child: Text(widget._puzzleBuilder.charAt(row, column))
                                             );
                                         })
                                     ),
