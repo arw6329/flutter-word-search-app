@@ -55,12 +55,14 @@ class MyHomePage extends StatelessWidget {
                 title: Text(title),
             ),
             body: Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                child: Flex(
+                    direction: Axis.vertical,
                     children: [
-                        WordSearchPuzzle(rows: 15, columns: 12, words: words)
-                    ],
-                ),
+                        Flexible(
+                            child: WordSearchPuzzle(rows: 15, columns: 12, words: words)
+                        )
+                    ]
+                )
             )
         );
     }

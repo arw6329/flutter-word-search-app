@@ -126,41 +126,46 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
             margin: EdgeInsets.all(5),
             child: Container(
                 padding: EdgeInsets.all(5),
-                child: Stack(
-                    children: [
-                        IgnorePointer(
-                          child: LayoutBuilder(
-                              builder: (BuildContext context, BoxConstraints constraints) {
-                                  return Stack(
-                                      children: _getHighlights(constraints)
-                                  );
-                              },
-                          ),
-                        ),
-                        Listener(
-                            onPointerDown: _startHighlight,
-                            onPointerUp: _cancelHighlight,
-                            onPointerCancel: _cancelHighlight,
-                            child: GridView.count(
-                                childAspectRatio: 1,
-                                crossAxisCount: widget.columns,
-                                shrinkWrap: true,
-                                children: List.generate(widget.rows * widget.columns, (index) {
-                                    var row = (index / widget.columns).floor();
-                                    var column = index % widget.columns;
-                                            
-                                    return MouseRegion(
-                                        onEnter: (_) {
-                                        _setPointerLocation(row, column);
+                child: Flexible(
+                    child: AspectRatio(
+                        aspectRatio: widget.columns / widget.rows,
+                        child: Stack(
+                            children: [
+                                IgnorePointer(
+                                    child: LayoutBuilder(
+                                        builder: (BuildContext context, BoxConstraints constraints) {
+                                            return Stack(
+                                                children: _getHighlights(constraints)
+                                            );
                                         },
-                                        child: Center(
-                                            child: Text(widget._puzzleBuilder.charAt(row, column))
-                                        )
-                                    );
-                                })
-                            ),
-                        )
-                    ]
+                                    ),
+                                ),
+                                Listener(
+                                    onPointerDown: _startHighlight,
+                                    onPointerUp: _cancelHighlight,
+                                    onPointerCancel: _cancelHighlight,
+                                    child: GridView.count(
+                                        childAspectRatio: 1,
+                                        crossAxisCount: widget.columns,
+                                        shrinkWrap: true,
+                                        children: List.generate(widget.rows * widget.columns, (index) {
+                                            var row = (index / widget.columns).floor();
+                                            var column = index % widget.columns;
+                                                    
+                                            return MouseRegion(
+                                                onEnter: (_) {
+                                                    _setPointerLocation(row, column);
+                                                },
+                                                child: Center(
+                                                    child: Text(widget._puzzleBuilder.charAt(row, column))
+                                                )
+                                            );
+                                        })
+                                    ),
+                                )
+                            ]
+                        ),
+                    ),
                 )
             )
         );
