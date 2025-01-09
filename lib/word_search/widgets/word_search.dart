@@ -49,6 +49,7 @@ class _WordSearchState extends State<WordSearch> {
     Widget build(BuildContext context) {
         return Flex(
             direction: Axis.vertical,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
                 Flexible(
                     flex: 1,
