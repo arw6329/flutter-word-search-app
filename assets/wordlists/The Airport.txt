@@ -1,0 +1,23 @@
+Terminal
+Baggage
+Travel
+Gate
+Airplane
+Security
+Luggage
+Passenger
+Departure
+Runway
+Taxi
+Takeoff
+Agent
+Pilot
+Restaurant
+Vacation
+Carry On
+Delta
+Southwest
+Checkpoint
+Boarding
+Passport
+Landing

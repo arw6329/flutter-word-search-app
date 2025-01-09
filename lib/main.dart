@@ -1,28 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_search_app/word_search/widgets/word_search.dart';
-
-const words = [
-    'Brazil',
-    'Japan',
-    'Egypt',
-    'Canada',
-    'Germany',
-    'Kenya',
-    'Argentina',
-    'India',
-    'Australia',
-    'Iceland',
-    'Thailand',
-    'Morocco',
-    'Norway',
-    'Peru',
-    'South Korea',
-    'Nigeria',
-    'Italy',
-    'Chile',
-    'Vietnam',
-    'Turkey'
-];
+import 'package:word_search_app/word_search/wordlist_retrieval.dart';
 
 void main() {
     runApp(const MyApp());
@@ -57,8 +35,17 @@ class MyHomePage extends StatelessWidget {
                 backgroundColor: Theme.of(context).colorScheme.inversePrimary,
                 title: Text(title),
             ),
-            body: Center(
-                child: WordSearch(rows: 15, columns: 12, words: words)
+            body: FutureBuilder(
+                future: retrieveRandomWordlist(20),
+                builder: (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
+                    return Center(
+                        child: snapshot.hasData
+                            ? WordSearch(rows: 15, columns: 12, words: snapshot.data!)
+                        : snapshot.hasError
+                            ? Text('Error generating puzzle: ${snapshot.error}')
+                            : Text('Loading puzzle')
+                    );
+                }
             )
         );
     }
