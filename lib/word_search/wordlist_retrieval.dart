@@ -3,10 +3,14 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
 
-Future<List<String>> retrieveRandomWordlist(int count) async {
+Future<(String theme, List<String> words)> retrieveRandomWordlist(int count) async {
     final assetManifest = await AssetManifest.loadFromAssetBundle(rootBundle);
     final wordlists = assetManifest.listAssets().where((string) => string.startsWith('assets/wordlists/'));
-    final wordlist = LineSplitter().convert(await rootBundle.loadString(wordlists.shuffled().first));
-    wordlist.shuffle();
-    return wordlist.take(count).toList();
+    final selectedWordlist = wordlists.shuffled().first;
+
+    final theme = selectedWordlist.replaceAll(RegExp('(?:assets/wordlists/|\\.txt)'), '');
+    final words = LineSplitter().convert(await rootBundle.loadString(selectedWordlist));
+    words.shuffle();
+
+    return (theme, words.take(count).toList());
 }

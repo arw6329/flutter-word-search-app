@@ -19,34 +19,33 @@ class MyApp extends StatelessWidget {
                 ),
                 useMaterial3: true,
             ),
-            home: const MyHomePage(title: 'Flutter Demo Home Page'),
+            home: const MyHomePage(),
         );
     }
 }
 class MyHomePage extends StatelessWidget {
-    const MyHomePage({super.key, required this.title});
-
-    final String title;
+    const MyHomePage({super.key});
 
     @override
     Widget build(BuildContext context) {
-        return Scaffold(
-            appBar: AppBar(
-                backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-                title: Text(title),
-            ),
-            body: FutureBuilder(
-                future: retrieveRandomWordlist(20),
-                builder: (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
-                    return Center(
+        final wordlistFuture = retrieveRandomWordlist(20);
+        return FutureBuilder(
+            future: wordlistFuture,
+            builder: (BuildContext context, AsyncSnapshot<(String theme, List<String> words)> snapshot) {
+                return Scaffold(
+                    appBar: AppBar(
+                        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                        title: Text(snapshot.hasData ? snapshot.data!.$1 : ''),
+                    ),
+                    body: Center(
                         child: snapshot.hasData
-                            ? WordSearch(rows: 15, columns: 12, words: snapshot.data!)
+                            ? WordSearch(rows: 15, columns: 12, words: snapshot.data!.$2)
                         : snapshot.hasError
                             ? Text('Error generating puzzle: ${snapshot.error}')
                             : Text('Loading puzzle')
-                    );
-                }
-            )
-        );
+                    )
+                );
+            }
+        ); 
     }
 }
