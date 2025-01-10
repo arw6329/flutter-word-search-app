@@ -14,12 +14,13 @@ Map<String, String> normalizeWords(List<String> words) {
 }
 
 class WordSearch extends StatefulWidget {
-    WordSearch({super.key, required this.rows, required this.columns, required List<String> words}):
+    WordSearch({super.key, required this.rows, required this.columns, required List<String> words, this.onSolve}):
         _wordsMap = normalizeWords(words);
 
     final int rows;
     final int columns;
     final Map<String, String> _wordsMap;
+    final void Function()? onSolve;
 
     @override
     State<WordSearch> createState() => _WordSearchState();
@@ -42,6 +43,9 @@ class _WordSearchState extends State<WordSearch> {
                     _solvedWords.add(word);
                 });
             },
+            onSolve: () {
+                widget.onSolve?.call();
+            }
         );
     }
 

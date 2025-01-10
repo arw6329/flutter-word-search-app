@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:word_search_app/large_common_button.dart';
 import 'package:word_search_app/pages/word_search_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,23 +20,12 @@ class HomePage extends StatelessWidget {
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
                         )),
-                        ElevatedButton(
+                        LargeCommonButton(
                             onPressed: () {
                                 Navigator.of(context).push(
                                     MaterialPageRoute(builder: (context) => const WordSearchPage())
                                 );
                             },
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Theme.of(context).colorScheme.primary,
-                                foregroundColor: Color.fromRGBO(22, 22, 22, 0.7),
-                                padding: EdgeInsets.symmetric(vertical: 14, horizontal: 22),
-                                textStyle: TextStyle(
-                                    fontSize: 20
-                                ),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4)
-                                )
-                            ),
                             child: Row(
                                 children: [
                                     Flexible(
@@ -45,9 +35,9 @@ class HomePage extends StatelessWidget {
                                     Text('12 x 15')
                                 ]
                             )
-                        ),
-                    ],
-                ),
+                        )
+                    ]
+                )
             )
         );
     }

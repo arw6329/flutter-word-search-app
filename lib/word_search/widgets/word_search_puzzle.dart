@@ -7,13 +7,14 @@ import 'package:word_search_app/word_search/puzzle_builder.dart';
 import 'package:word_search_app/word_search/widgets/word_search_highlight.dart';
 
 class WordSearchPuzzle extends StatefulWidget {
-    WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required this.onSolveWord}):
+    WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required this.onSolveWord, required this.onSolve}):
         _puzzleBuilder = PuzzleBuilder(rows: rows, columns: columns, words: words);
 
     final int rows;
     final int columns;
     final List<String> words;
     final void Function(String word) onSolveWord;
+    final void Function() onSolve;
 
     final PuzzleBuilder _puzzleBuilder;
 
@@ -88,6 +89,10 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                     dev.log('Solved word $matchedWord');
                     _solvedWords.add(Placement(row: _activeHighlightStartRow!, column: _activeHighlightStartColumn!, direction: direction, word: matchedWord));
                     widget.onSolveWord(matchedWord);
+
+                    if(_solvedWords.length == widget.words.length) {
+                        widget.onSolve();
+                    }
                 }
             }
 
