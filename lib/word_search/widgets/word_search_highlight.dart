@@ -3,6 +3,20 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:word_search_app/word_search/puzzle_builder.dart';
 
+class WordSearchHighlightColors {
+    static const red = Color.fromRGBO(255, 0, 0, 0.5);
+    static const yellow = Color.fromRGBO(255, 255, 0, 0.5);
+    static const green = Color.fromRGBO(0, 255, 0, 0.5);
+    static const blue = Color.fromRGBO(0, 0, 255, 0.5);
+    static const teal = Color.fromRGBO(0, 255, 255, 0.5);
+    static const purple = Color.fromRGBO(255, 0, 255, 0.5);
+    static const orange = Color.fromRGBO(255, 143, 45, 0.5);
+
+    static random(Random random) {
+        const colors = [red, yellow, green, blue, teal, purple, orange];
+        return colors[random.nextInt(colors.length)];
+    }
+}
 class WordSearchHighlight extends StatelessWidget {
     const WordSearchHighlight({
         super.key,
@@ -13,13 +27,15 @@ class WordSearchHighlight extends StatelessWidget {
         required this.startY,
         required this.endX,
         required this.endY,
+        required this.color
     });
 
     static WordSearchHighlight fromPlacement({
         required puzzleRows,
         required puzzleColumns,
         required constraints,
-        required Placement placement
+        required Placement placement,
+        required Color color
     }) {
         return WordSearchHighlight(
             puzzleRows: puzzleRows,
@@ -28,7 +44,8 @@ class WordSearchHighlight extends StatelessWidget {
             startX: placement.column,
             startY: placement.row,
             endX: placement.column + placement.direction.dx * (placement.word.length - 1),
-            endY: placement.row + placement.direction.dy * (placement.word.length - 1)
+            endY: placement.row + placement.direction.dy * (placement.word.length - 1),
+            color: color
         );
     }
 
@@ -39,6 +56,7 @@ class WordSearchHighlight extends StatelessWidget {
     final int startY;
     final int endX;
     final int endY;
+    final Color color;
     
     @override
     Widget build(BuildContext context) {
@@ -66,7 +84,7 @@ class WordSearchHighlight extends StatelessWidget {
                 child: Container(
                     decoration: BoxDecoration(
                         borderRadius: isDiagonal ? null : BorderRadius.circular(cellSize / 2),
-                        color: Color.fromRGBO(255, 0, 0, 0.5)
+                        color: color
                     ),
                     margin: EdgeInsets.all(spaceBetweenHlAndCellBounds),
                     width: isVertical ? cellSize * hlWidthAsPercentageOfCell : cellSize * ((endX - startX).abs() + 1) - spaceBetweenHlAndCellBounds * 2,

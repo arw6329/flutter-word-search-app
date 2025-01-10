@@ -38,6 +38,7 @@ class WordSearchPuzzle extends StatefulWidget {
 
     final PuzzleBuilder _puzzleBuilder;
     final Set<Placement> _initialSolvedWords;
+    final int _colorRandomSeed = Random().nextInt(1000000);
 
     @override
     State<WordSearchPuzzle> createState() => _WordSearchPuzzleState();
@@ -139,7 +140,15 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
     }
 
     _getHighlights(BoxConstraints constraints) {
+        final random = Random(widget._colorRandomSeed);
         return [
+            ..._solvedWords.map((placement) => WordSearchHighlight.fromPlacement(
+                constraints: constraints,
+                puzzleRows: widget.rows,
+                puzzleColumns: widget.columns,
+                placement: placement,
+                color: WordSearchHighlightColors.random(random)
+            )),
             if(_activeHighlightStartColumn != null) WordSearchHighlight(
                 constraints: constraints,
                 puzzleRows: widget.rows,
@@ -147,14 +156,9 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                 startX: _activeHighlightStartColumn!,
                 startY: _activeHighlightStartRow!,
                 endX: _pointerCurrentColumn!,
-                endY: _pointerCurrentRow!
-            ),
-            ..._solvedWords.map((placement) => WordSearchHighlight.fromPlacement(
-                constraints: constraints,
-                puzzleRows: widget.rows,
-                puzzleColumns: widget.columns,
-                placement: placement
-            ))
+                endY: _pointerCurrentRow!,
+                color: WordSearchHighlightColors.random(random)
+            )
         ];
     }
 
