@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_search_app/large_common_button.dart';
+import 'package:word_search_app/navigation.dart';
 import 'package:word_search_app/pages/home_page.dart';
 import 'package:word_search_app/word_search/widgets/word_search.dart';
 import 'package:word_search_app/word_search/wordlist_retrieval.dart';
@@ -24,10 +25,7 @@ class WordSearchPage extends StatelessWidget {
                             children: [
                                 LargeCommonButton(
                                     onPressed: () {
-                                        Navigator.of(context).popUntil((route) => route.isFirst);
-                                        Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(builder: (context) => const WordSearchPage())
-                                        );
+                                        clearHistoryAndNavigateToPage(context, const WordSearchPage());
                                     },
                                     child: Row(
                                         children: [
@@ -39,10 +37,7 @@ class WordSearchPage extends StatelessWidget {
                                 ),
                                 LargeCommonButton(
                                     onPressed: () {
-                                        Navigator.of(context).popUntil((route) => route.isFirst);
-                                        Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(builder: (context) => const HomePage())
-                                        );
+                                        clearHistoryAndNavigateToPage(context, const HomePage());
                                     },
                                     color: Color(0xFFAAAAAA),
                                     solid: false,
@@ -72,7 +67,16 @@ class WordSearchPage extends StatelessWidget {
                     appBar: AppBar(
                         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
                         title: Text(snapshot.hasData ? snapshot.data!.$1 : ''),
-                        automaticallyImplyLeading: false
+                        automaticallyImplyLeading: false,
+                        actions: [
+                            IconButton(
+                                onPressed: () {
+                                    clearHistoryAndNavigateToPage(context, const HomePage());
+                                },
+                                tooltip: 'Go home', 
+                                icon: const Icon(Icons.home)
+                            )
+                        ]
                     ),
                     body: Center(
                         child: snapshot.hasData
