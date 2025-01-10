@@ -1,0 +1,16 @@
+Insert
+Page Down
+Delete
+Print Screen
+Shift
+Control
+Tab
+Enter
+Backspace
+Asterisk
+Caps Lock
+Percentage
+Space Bar
+And
+Escape
+End

@@ -1,0 +1,16 @@
+Bell
+Pedals
+Crank
+Chain
+Frame
+Brakes
+Handle
+Tire
+Grips
+Wheels
+Sprocket
+Gear
+Reflector
+Suspension
+Crossbar
+Seat

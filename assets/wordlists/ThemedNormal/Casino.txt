@@ -1,0 +1,16 @@
+Dice
+Chips
+Blackjack
+Cashier
+Inspector
+Payout
+Bar
+Jackpot
+Bet
+Hotel
+Poker
+Slots
+Dealer
+Gamble
+Manager
+Player

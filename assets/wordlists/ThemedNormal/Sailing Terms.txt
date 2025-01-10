@@ -1,0 +1,16 @@
+Cabin
+Adrift
+Deck
+Galley
+Aboard
+Current
+Foresail
+Draft
+Anchor
+Buoy
+Abeam
+Dock
+Fathom
+Boom
+Hull
+Hold

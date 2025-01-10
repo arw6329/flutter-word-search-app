@@ -1,0 +1,16 @@
+Tornado
+Thunder
+Breeze
+Cloudy
+Drought
+Overcast
+Warn
+Wind
+Typhoon
+Frost
+Fog
+Sun
+Snow
+Mist
+Hail
+Drizzle

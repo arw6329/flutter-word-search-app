@@ -1,0 +1,16 @@
+Crust
+Core
+Eclipse
+Satellite
+Surface
+Spaceship
+Ozone
+Magma
+Gravity
+Mantle
+Equator
+Warming
+Lithosphere
+Moon
+Orbit
+Atmosphere

@@ -1,0 +1,16 @@
+Forklifts
+Warehouse
+Rapid
+Operator
+Training
+Forks
+Alert
+Pedestrian
+Truck
+Caution
+Safety
+Overload
+Horn
+Accidents
+Authorized
+Licensed

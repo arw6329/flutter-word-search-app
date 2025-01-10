@@ -1,0 +1,16 @@
+Pivot
+Timeout
+Layup
+Turnover
+Guards
+Assist
+Pass
+Players
+Team
+Goal
+Open
+Blocking
+Shooter
+Hoop
+Basket
+Dribble

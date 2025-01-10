@@ -1,0 +1,16 @@
+Buffalo
+Koala
+Bull
+Gorilla
+Giraffe
+Bison
+Tortoise
+Deer
+Zebra
+Elephant
+Sheep
+Donkey
+Goat
+Panda
+Cow
+Horse

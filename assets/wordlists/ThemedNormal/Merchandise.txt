@@ -1,0 +1,16 @@
+Goods
+Aisle
+Sales
+Product
+Patron
+Business
+Stock
+Client
+Customer
+Owner
+Service
+Shop
+Inventory
+Profit
+Retail
+Budget

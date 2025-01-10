@@ -1,0 +1,16 @@
+Window
+Security
+Aisle
+Fly
+Ticket
+Passenger
+Seat
+Wings
+Sky
+Baggage
+Pilot
+Airport
+Clouds
+Runway
+Cockpit
+Door

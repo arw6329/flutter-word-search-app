@@ -1,0 +1,16 @@
+Doctor
+Beds
+Aids
+Residents
+Needle
+Nurses
+Activities
+Comfort
+Charts
+Wheelchair
+Tables
+Aspirin
+Therapy
+Seniors
+Drugs
+Care

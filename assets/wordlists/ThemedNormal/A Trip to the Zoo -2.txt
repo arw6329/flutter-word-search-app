@@ -1,0 +1,16 @@
+Python
+Gorilla
+Otter
+Kangaroo
+Parrot
+Lion
+Panda
+Gecko
+Gazelle
+Hippo
+Heron
+Monkey
+Leopard
+Koala
+Galah
+Goose

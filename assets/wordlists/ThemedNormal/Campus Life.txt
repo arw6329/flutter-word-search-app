@@ -1,0 +1,16 @@
+Stadium
+Grade
+Bookstore
+Study
+Library
+Professor
+Laboratory
+Classroom
+Tutor
+Cafeteria
+Lecture
+Coffee Shop
+Student
+Semester
+Learn
+Teacher

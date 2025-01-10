@@ -1,0 +1,16 @@
+Environment
+Coal
+Solar
+Oil
+Renewable
+Hydro
+Biomass
+Natural
+Electricity
+Nuclear
+Greenhouse
+Fossil Fuel
+Thermal
+Gas
+Biofuel
+Wind Mills

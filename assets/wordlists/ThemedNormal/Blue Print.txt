@@ -1,0 +1,16 @@
+Direction
+Dimensions
+Field
+Stair
+Slope
+Section
+Revised
+Note
+Scale
+Verify
+Drawing
+Detail
+Print
+Foundation
+Floor
+Elevation

@@ -1,0 +1,16 @@
+Forecast
+Cloudy
+Blizzard
+Dust
+Frost
+Air Quality
+Cirrus
+Flood
+Fog
+Atmosphere
+Advisory
+Dew Point
+Air Mass
+Climate
+Barometer
+Absorption

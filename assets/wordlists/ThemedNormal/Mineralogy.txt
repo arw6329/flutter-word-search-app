@@ -1,0 +1,16 @@
+Fracture
+Chemical
+Volcanic
+Gemstone
+Cycle
+Smelting
+Inorganic
+Luster
+Extrusive
+Color
+Solvent
+Geologist
+Ore
+Fossil
+Rocks
+Crystals

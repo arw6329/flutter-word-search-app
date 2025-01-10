@@ -1,0 +1,16 @@
+Rat
+Zombie
+Spider
+Chains
+Spirit
+Rubble
+Skeleton
+Bat
+Painting
+Dust
+Ghost
+Slime
+Darkness
+Piano
+Cobweb
+Witch

@@ -1,0 +1,16 @@
+Break
+Suit
+Split
+Jackpot
+Cards
+Raise
+Purse
+Chips
+Bet
+Stack
+Blind
+Cut
+Bluff
+Stakes
+River
+Ante

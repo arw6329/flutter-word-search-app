@@ -1,0 +1,16 @@
+Sailor
+Crew
+Trade
+Galleon
+Map
+Ship
+Adventure
+Captain
+Deck
+Parrot
+Cannon
+Ransom
+Bounty
+Cutlass
+Sword
+Flag

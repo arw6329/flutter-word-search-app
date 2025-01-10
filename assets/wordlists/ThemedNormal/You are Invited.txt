@@ -1,0 +1,16 @@
+Concert
+Party
+Affair
+Banquet
+Theater
+Dinner
+Occasion
+Shower
+Gathering
+Barbecue
+Dance
+Celebration
+Movie
+Reception
+Visit
+Wedding

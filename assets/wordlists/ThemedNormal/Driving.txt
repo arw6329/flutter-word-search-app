@@ -1,0 +1,16 @@
+Speed
+Blind Spot
+Clutch
+Brake
+Gear
+Dashboard
+Road
+Pass
+Stop
+Learner
+Reverse
+Hazards
+Parking
+Signal
+License
+Mirror

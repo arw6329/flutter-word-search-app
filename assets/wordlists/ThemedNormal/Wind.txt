@@ -1,0 +1,16 @@
+hurricane
+current
+typhoon
+draft
+monsoon
+blizzard
+breeze
+puff
+zephyr
+cyclone
+whirlwind
+storm
+dust devil
+tornado
+gale
+gust

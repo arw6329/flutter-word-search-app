@@ -1,0 +1,20 @@
+Inventory
+Department
+Saleswoman
+Database
+Equipment
+Workspace
+Spreadsheet
+Customer
+Letterhead
+Mouse Pad
+Cubicle
+Interview
+Office
+Vacancy
+Boss
+Deadline
+Secretary
+Accounts
+Typewriter
+Bookkeeping

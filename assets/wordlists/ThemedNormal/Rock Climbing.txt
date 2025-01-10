@@ -1,0 +1,16 @@
+Route
+Free
+Sport
+Indoor
+Agility
+Bolt
+Aid
+Balance
+Solo
+Strength
+Outdoor
+Rope
+Shoes
+Wall
+Summit
+Helmet

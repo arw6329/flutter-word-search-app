@@ -1,0 +1,16 @@
+Xylophone
+Gong
+Triangle
+Tabla
+Chime
+Steel Drum
+Bass Drum
+Cymbal
+Maraca
+Drum Kit
+Bongo
+Conga
+Cowbell
+Castanets
+Dhol
+Marimba

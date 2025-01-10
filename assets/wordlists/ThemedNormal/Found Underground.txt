@@ -1,0 +1,16 @@
+Burrows
+Caves
+Coal
+Dungeons
+Eggs
+Gold
+Lakes
+Mines
+Fossils
+Moles
+Oil
+Worms
+Stones
+Subway
+Gravel
+Ores

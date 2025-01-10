@@ -1,0 +1,16 @@
+Lamb
+Corn
+Shed
+Straw
+Wheat
+Tractor
+Goat
+Beans
+Hay
+Pony
+Dog
+Fence
+Well
+Barn
+Pig
+Cow

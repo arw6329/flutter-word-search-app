@@ -1,0 +1,16 @@
+Belt
+Boots
+Coat
+Dress
+Gloves
+Hat
+Jacket
+Jeans
+Pants
+Shirt
+Shoes
+Socks
+Tie
+Skirt
+Vest
+Sweater

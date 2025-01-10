@@ -1,0 +1,16 @@
+Nickel
+Liquid
+Mantle
+Igneous
+Metal
+Earth
+Oceanic
+Density
+Planet
+Crust
+Core
+Seismic
+Mineral
+Iron
+Rock
+Solid

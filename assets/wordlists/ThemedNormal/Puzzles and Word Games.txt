@@ -1,0 +1,16 @@
+Word Fit
+Boogle
+Kakuro
+Word Wheel
+Jigsaw
+Futoshiki
+Anagram
+Scrabble
+Hangman
+Cryptogram
+Quiz
+Word Ladder
+Crossword
+Sudoku
+Acrostic
+Word Hunt

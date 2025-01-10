@@ -1,0 +1,16 @@
+Smoke
+Radio
+Badge
+Scanner
+Alarm
+Ambulance
+Phone
+Dispatch
+Officer
+Medic
+Siren
+Emergency
+Police
+Fire Truck
+Rescue
+Firefighter

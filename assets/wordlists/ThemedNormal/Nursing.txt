@@ -1,0 +1,16 @@
+X-Ray
+Tablet
+Operation
+Oxygen
+Pressure
+Respiration
+Bed
+Ward
+Diagnosis
+Patient
+Cardiac
+Saline
+Needle
+Blood
+Pulse
+Temperature

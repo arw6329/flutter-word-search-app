@@ -1,0 +1,19 @@
+Vertebrate
+wings
+starfish
+bird
+amphibian
+humans
+feathers
+breathe
+lay eggs
+backbone
+reptile
+frog
+lungs
+snake
+fur
+gills
+insect
+mammal
+scales

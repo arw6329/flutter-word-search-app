@@ -1,0 +1,16 @@
+Glass
+Cup
+Plate
+Bowl
+Ladle
+Whisk
+Tray
+Pan
+Kettle
+Juicer
+Grinder
+Opener
+Oven
+Spoon
+Fork
+Spatula

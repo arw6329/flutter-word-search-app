@@ -1,0 +1,16 @@
+Crops
+Tractor
+Poultry
+Combine
+Feed
+Herd
+Meadow
+Fertilizer
+Bison
+Barn
+Well
+Field
+Fence
+Cattle
+Harvest
+Farm

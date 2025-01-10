@@ -1,0 +1,16 @@
+Koto
+Lyre
+Gaita
+Cajon
+Harp
+Mandolin
+Fiddle
+Cuatro
+Guitar
+Bandura
+Darbuka
+Dotara
+Bell
+Cetera
+Gusle
+Violin

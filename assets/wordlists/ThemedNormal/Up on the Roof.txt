@@ -1,0 +1,16 @@
+Wall
+Domed
+Beam
+Arched
+Eaves
+Abut
+Timber
+Rake
+Material
+Durability
+Nails
+Stud
+Lumber
+Shingles
+Projection
+Tiles

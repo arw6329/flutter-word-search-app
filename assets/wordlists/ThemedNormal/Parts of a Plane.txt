@@ -1,0 +1,16 @@
+Cockpit
+Propeller
+Spoiler
+Wing
+Dope
+Flap
+Slat
+Tail
+Door
+Seat
+Rudder
+Canopy
+Cabin
+Elevator
+Engine
+Rib

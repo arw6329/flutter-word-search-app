@@ -1,0 +1,16 @@
+Drought
+Artifact
+Climate
+Republic
+Citizen
+Landform
+Aquifer
+Location
+Plateau
+Century
+Province
+Relative
+Council
+Judicial
+Navigate
+Stockade

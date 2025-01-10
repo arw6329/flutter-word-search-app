@@ -1,0 +1,16 @@
+Guinea Pig
+Lizard
+Iguana
+Rat
+Rabbit
+Ferret
+Turtle
+Bird
+Mouse
+Hamster
+Dog
+Cat
+Reptiles
+Fish
+Snake
+Horse

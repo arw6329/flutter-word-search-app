@@ -1,0 +1,16 @@
+Irrigation
+Orchard
+Tractor
+Chickens
+Vegetables
+Storage
+Herd
+Forage
+Chores
+Windmill
+Dairy
+Hogs
+Livestock
+Canning
+Fences
+Acres

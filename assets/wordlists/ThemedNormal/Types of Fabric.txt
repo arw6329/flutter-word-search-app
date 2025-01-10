@@ -1,0 +1,16 @@
+Poplin
+Bamboo
+Wool
+Acetate
+Jute
+Linen
+Rayon
+Polyester
+Cloth
+Muslin
+Microfiber
+Velvet
+Satin
+Acrylic
+Silk
+Nylon

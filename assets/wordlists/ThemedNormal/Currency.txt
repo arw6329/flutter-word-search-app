@@ -1,0 +1,16 @@
+Denar
+Florin
+Cedi
+Birr
+Franc
+Pound
+Gourde
+Peso
+Kwanza
+Dime
+Rupee
+Dollar
+Cupon
+Euro
+Afghani
+Budju

@@ -1,0 +1,16 @@
+Contract
+Ribbon
+Necklace
+Belt
+Certificate
+Medal
+Sticker
+Jug
+Cup
+Trophy
+Statue
+Silver
+Vouchers
+Prize
+Gold
+Money

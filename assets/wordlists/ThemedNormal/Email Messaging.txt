@@ -1,0 +1,16 @@
+Subject
+Spam
+Unread
+Password
+Receive
+Trash
+Drafts
+Date
+Inbox
+Sent
+Compose
+Archive
+Account
+Font
+Signature
+Flagged

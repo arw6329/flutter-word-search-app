@@ -1,0 +1,20 @@
+Modem
+Monitor
+Megabyte
+Printer
+Mouse
+Megabit
+Hard Drive
+Router
+Desktop
+Keyboard
+RAM
+CD ROM
+Gigabyte
+HTML
+CPU
+Bandwidth
+URL
+USB
+LAN
+Binary

@@ -1,0 +1,16 @@
+Priest
+Holy Water
+Flowers
+Statues
+Paintings
+Deacons
+Candles
+Crucifix
+Bells
+Organ
+Vase
+Glass
+Basket
+Acolyte
+Robes
+Lectern

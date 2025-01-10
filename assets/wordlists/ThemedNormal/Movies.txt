@@ -1,0 +1,16 @@
+Star
+Scene
+Cast
+Actor
+Action
+Conflict
+Dialogue
+Cinema
+Drama
+Comedy
+Climax
+Hero
+Thriller
+Plot
+Villain
+Director

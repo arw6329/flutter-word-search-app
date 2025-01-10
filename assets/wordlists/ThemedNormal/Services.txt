@@ -1,0 +1,16 @@
+Hair Dresser
+Hospitality
+Beauty
+Police
+Tailor
+Carpenter
+Electrician
+Mechanic
+Marketing
+Catering
+Plumbing
+Fire
+Ambulance
+Banking
+Landscaping
+Locksmith

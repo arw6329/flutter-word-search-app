@@ -1,0 +1,16 @@
+Center
+Penalty Box
+Stick
+Goalie
+Skates
+Blue Line
+Net
+Fighting
+Offside
+Boards
+Left Wing
+Icing
+Puck
+Red Line
+Right Wing
+Score Board

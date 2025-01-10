@@ -1,0 +1,16 @@
+Scooter
+Trailer
+Carriage
+Tram
+Rickshaw
+Bus
+Truck
+Oxen
+Moped
+Coach
+Horse
+Cart
+Bicycle
+Van
+Buggy
+Motorcycle

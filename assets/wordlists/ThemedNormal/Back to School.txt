@@ -1,0 +1,19 @@
+Enroll
+Locker
+Assignments
+Rules
+Bell
+Sharpner
+Teacher
+Study
+Notebook
+Pencil
+Homework
+Library
+Desk
+Backpack
+Eraser
+paper
+Exams
+Classroom
+School Bus

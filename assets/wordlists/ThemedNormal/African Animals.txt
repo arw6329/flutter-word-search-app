@@ -1,0 +1,16 @@
+Elephant
+Vulture
+Crocodile
+Hedgehog
+Zebra
+Bat
+Cheetah
+Lion
+Buffalo
+Giraffe
+Ostrich
+Baboon
+Leopard
+Hyena
+Warthog
+Jackal

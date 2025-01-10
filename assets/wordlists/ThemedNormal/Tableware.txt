@@ -1,0 +1,16 @@
+Mug
+Saucer
+Pepper
+Jug
+Glass
+Salt
+Fork
+Teapot
+Bowl
+Pitcher
+Plate
+Cup
+Napkin
+Knife
+Tray
+Spoon

@@ -1,0 +1,16 @@
+Ship
+Souvenir
+Tour
+Ticket
+Bus
+Map
+Itinerary
+Road
+Train
+Cruise
+Passport
+Camera
+Passenger
+Travel
+Airplane
+Vacation

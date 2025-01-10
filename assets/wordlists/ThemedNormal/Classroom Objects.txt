@@ -1,0 +1,18 @@
+Sharpener
+Ruler
+Rubber
+Desk
+Text Book
+Notebook
+Board
+Scissors
+Chair
+Bag
+Pencil
+Glue
+Chalk
+Highlighter
+Marker
+Lights
+Computer
+Dictionary

@@ -1,0 +1,16 @@
+Samoyed
+Dalmation
+Chihuahua
+Terrier
+Saluki
+Harrier
+Pug
+Bulldog
+Komondor
+Pointer
+Maltese
+Beagle
+Collie
+Boxer
+Greyhound
+Borzol

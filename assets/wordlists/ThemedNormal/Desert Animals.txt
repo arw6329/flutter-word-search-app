@@ -1,0 +1,16 @@
+Coyote
+Beetle
+Lizard
+Vulture
+Hyena
+Antelope
+Fox
+Snake
+Tortoise
+Camel
+Bat
+Spider
+Kangaroo
+Scorpion
+Rodent
+Hare

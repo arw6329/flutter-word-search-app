@@ -1,0 +1,16 @@
+Almond
+Barley
+Cocoa
+Oat
+Coffee
+Potato
+Sesame
+Coconut
+Corn
+Lentil
+Orange
+Cotton
+Flax
+Rye
+Apple
+Wheat

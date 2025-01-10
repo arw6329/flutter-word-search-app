@@ -1,0 +1,16 @@
+Diagram
+Neck
+Capo
+Pluck
+Guitar
+Chord
+Electric
+Tuning
+Classical
+Pegs
+Acoustic
+Portable
+Fret
+Strings
+Bridge
+Amplifier

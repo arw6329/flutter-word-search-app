@@ -1,0 +1,16 @@
+Soap
+Mirror
+Rug
+Brush
+Hair Dryer
+Bathtub
+Curling Iron
+Shower
+Toilet
+Conditioner
+Razor
+Comb
+Sink
+Shampoo
+Hamper
+Towel

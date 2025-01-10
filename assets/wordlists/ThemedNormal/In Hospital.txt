@@ -1,0 +1,16 @@
+Nurse
+Pulse
+Surgeon
+Midwife
+Maternity
+Concussion
+Fracture
+Newborn
+Injury
+Radiology
+Accident
+Diagnosis
+Emergency
+Records
+Discharge
+Medicine

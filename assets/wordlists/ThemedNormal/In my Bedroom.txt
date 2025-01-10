@@ -1,0 +1,16 @@
+Chair
+Book
+Curtains
+Laptop
+Cupboard
+Makeup
+Desk
+Clothing
+Lamp
+Television
+Window
+Bed
+Teddy
+Mirror
+Pillow
+Floor

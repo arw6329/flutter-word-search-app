@@ -1,0 +1,16 @@
+Fall
+Winter
+Blizzard
+Spring
+Sun
+Tornado
+Cold
+Summer
+Rain
+Snow
+Calm
+Cloudy
+Hot
+Melt
+Freeze
+Windy

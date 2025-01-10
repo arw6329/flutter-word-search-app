@@ -1,0 +1,16 @@
+Seasons
+Factory
+Town
+Port
+Weather
+Coastline
+Office
+Farm
+Forest
+Ocean
+Shop
+House
+Valley
+Vegetation
+River
+City

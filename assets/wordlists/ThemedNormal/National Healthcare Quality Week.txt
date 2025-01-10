@@ -1,0 +1,16 @@
+Mortality
+Lactate
+Antibiotics
+Respiration
+Pneumonia
+Cellulitis
+Blood
+Infection
+Joint
+Changes
+Sepsis
+Pulse
+Fluids
+Culture
+Temperature
+Timely

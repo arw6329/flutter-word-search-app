@@ -1,0 +1,16 @@
+Claw
+Shell
+Hoof
+Trunk
+Fang
+Gill
+Fur
+Hump
+Talon
+Horn
+Antler
+Tail
+Wing
+Paw
+Beak
+Fin

@@ -1,0 +1,16 @@
+Florist
+Builder
+Plasterer
+Manager
+Childcare
+Plumber
+Programmer
+Hair Dresser
+Teacher
+Sales
+Accountant
+Electrician
+Chef
+Mechanic
+Designer
+Carpenter

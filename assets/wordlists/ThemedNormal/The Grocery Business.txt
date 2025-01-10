@@ -1,0 +1,16 @@
+Pharmacy
+Shipping
+Accounts
+Freight
+Stock
+Bakery
+Cook
+Food
+Material
+Machinery
+Counter
+Bread
+Fish
+Poultry
+Cashier
+Cakes

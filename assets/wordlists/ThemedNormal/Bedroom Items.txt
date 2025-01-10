@@ -1,0 +1,16 @@
+Curtains
+Pillow
+Lamp
+Dresser
+Rug
+Closet
+Shelf
+Mirror
+Photo
+Sheet
+Bookcase
+Blanket
+Armchair
+Mattress
+Bed
+Wardrobe

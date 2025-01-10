@@ -1,0 +1,16 @@
+Commander
+President
+Boss
+Captain
+Governor
+Dean
+Master
+Pope
+Inspector
+Minister
+Judge
+Chair
+Director
+Mayor
+Queen
+King

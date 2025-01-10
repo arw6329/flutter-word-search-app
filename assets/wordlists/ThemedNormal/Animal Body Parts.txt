@@ -1,0 +1,16 @@
+Gills
+Beak
+Paw
+Wing
+Fin
+Trunk
+Tail
+Claw
+Antler
+Leg
+Feather
+Shell
+Tusk
+Horn
+Antenna
+Talons

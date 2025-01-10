@@ -1,0 +1,16 @@
+Glass
+Lantern
+Geodesic
+Resemble
+Metal
+Chamber
+Plastic
+Wood
+Sphere
+Stone
+Mud
+Stadium
+Dome
+Brick
+Hollow
+Snow

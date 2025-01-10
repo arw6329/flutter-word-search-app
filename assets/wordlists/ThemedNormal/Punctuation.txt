@@ -1,0 +1,16 @@
+Accent
+Acute
+Semicolon
+Hook
+Solidus
+Apostrophe
+Grave
+Cedilla
+Umlaut
+Bracket
+Period
+Hyphen
+Macron
+Dash
+Tilde
+Comma

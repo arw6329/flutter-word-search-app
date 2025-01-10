@@ -1,0 +1,16 @@
+Country
+Rock
+Dance
+Electronic
+Big Band
+Blues
+Punk
+Classical
+Hip Hop
+Folk
+Heavy Metal
+Chamber
+Swing
+Barbershop
+Choral
+Jazz

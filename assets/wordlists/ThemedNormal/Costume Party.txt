@@ -1,0 +1,16 @@
+Witch
+Fairy
+Vampire
+Ninja
+Mummy
+Ghost
+Fireman
+Astronaut
+Caveman
+Nurse
+Robot
+Angel
+Cowboy
+Scarecrow
+Clown
+Pirate

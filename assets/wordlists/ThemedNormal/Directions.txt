@@ -1,0 +1,16 @@
+Behind
+Backward
+Above
+Towards
+Sideways
+Up
+Down
+South
+West
+North
+Left
+Ahead
+East
+Reverse
+Right
+Below

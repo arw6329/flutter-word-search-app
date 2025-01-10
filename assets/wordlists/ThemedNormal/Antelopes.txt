@@ -1,0 +1,16 @@
+Steenbok
+Bluebuck
+Oribi
+Wildebeest
+Elk
+Lechwe
+Addax
+Kudu
+Gazelle
+Springbok
+Bushbuck
+Eland
+Impala
+Oryx
+Reedbuck
+Waterbuck

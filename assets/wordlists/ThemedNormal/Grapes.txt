@@ -1,0 +1,16 @@
+Casks
+Aroma
+Red
+Bouquet
+Color
+Burgundy
+Texture
+Green
+Sugar
+Clarity
+Champagne
+Bubbles
+Cellar
+Wine
+Flavor
+Fruit

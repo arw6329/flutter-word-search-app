@@ -1,0 +1,16 @@
+Rupee
+Dollar
+Ruble
+Gourde
+Baht
+Lira
+Shilling
+Riyal
+Euro
+Yen
+Dinar
+Afghani
+Krona
+Dram
+Leone
+Pound

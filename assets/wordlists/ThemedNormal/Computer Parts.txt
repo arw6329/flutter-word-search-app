@@ -1,0 +1,16 @@
+Webcam
+Ram
+Speaker
+Printer
+Modem
+Scanner
+Hard Drive
+Joystick
+CPU
+Cable
+Mouse
+USB Port
+Keyboard
+Memory
+CD Drive
+Monitor

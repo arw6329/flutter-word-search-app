@@ -1,0 +1,16 @@
+Bus
+Coach
+Bicycle
+Lorry
+Motorcycle
+Truck
+Train
+Scooter
+Wagon
+Cart
+Cab
+Boat
+Horse
+Helicopter
+Airplane
+Van

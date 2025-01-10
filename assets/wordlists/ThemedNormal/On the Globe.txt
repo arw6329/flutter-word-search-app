@@ -1,0 +1,16 @@
+Seas
+Terrain
+Lakes
+Continents
+Equator
+Gulfs
+Water
+Countries
+Ice Lands
+Rivers
+Mountains
+Streams
+Desert
+Islands
+Oceans
+Plateaus

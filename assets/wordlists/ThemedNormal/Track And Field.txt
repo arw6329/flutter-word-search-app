@@ -1,0 +1,16 @@
+Distance
+Pole
+Hurdle
+Javelin
+Relay
+Long
+Shotput
+Discus
+Triple
+Jump
+Mile
+Sprint
+Field
+Track
+High
+Vault

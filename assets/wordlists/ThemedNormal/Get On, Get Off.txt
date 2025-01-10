@@ -1,0 +1,16 @@
+Gondola
+Escalator
+Stage
+Ladder
+Boat
+Coach
+Cycle
+Plane
+Ship
+Horse
+Platform
+Raft
+Treadmill
+Train
+Scales
+Trolley

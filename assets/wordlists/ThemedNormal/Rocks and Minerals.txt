@@ -1,0 +1,16 @@
+Earth
+Limestone
+Quartz
+Rock
+Igneous
+Stalactite
+Geologist
+Volcano
+Stalagmite
+Mineral
+Mantle
+Metamorphic
+Core
+Crust
+Sedimentary
+Calcite

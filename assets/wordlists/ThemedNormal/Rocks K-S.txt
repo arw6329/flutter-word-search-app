@@ -1,0 +1,16 @@
+Norite
+Shale
+Marble
+Rhyolite
+Siltstone
+Marl
+Latite
+Obsidian
+Picrite
+Limestone
+Mylonite
+Quartzite
+Mudstone
+Slate
+Ophiolite
+Pumice

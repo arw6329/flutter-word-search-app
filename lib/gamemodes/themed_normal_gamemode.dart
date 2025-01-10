@@ -6,7 +6,12 @@ class ThemedNormalGamemode implements Gamemode {
     
     @override
     Future<({String title, List<String> words})> getNewTitleAndWordlist() async {
-        final wordlist = await retrieveRandomWordlist(20);
+        final wordlist = await retrieveRandomWordlist(
+            wordlistFolder: name,
+            maxLength: 11,
+            minCount: 16,
+            maxCount: 20
+        );
         return (title: wordlist.theme, words: wordlist.words);
     }
 

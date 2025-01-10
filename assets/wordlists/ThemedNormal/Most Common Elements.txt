@@ -1,0 +1,16 @@
+Aluminum
+Zinc
+Cobalt
+Oxygen
+Iron
+Silicon
+Nickle
+Lead
+Titanium
+Phosphorus
+Calcium
+Sulfur
+Sodium
+Manganese
+Copper
+Barium

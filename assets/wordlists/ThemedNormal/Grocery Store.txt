@@ -1,0 +1,16 @@
+Produce
+Customer
+Rack
+Credit Card
+Discount
+Refund
+Bag
+Purchase
+Freezer
+Supermarket
+Bakery
+Basket
+Coupon
+Scales
+Receipt
+Aisle

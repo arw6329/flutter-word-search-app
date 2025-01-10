@@ -1,0 +1,16 @@
+Lightning
+Storm
+Hurricane
+Ice
+Overcast
+Night
+Landfall
+Snow
+Winds
+Humidity
+Heat
+Gust
+Hail
+radar
+Tornado
+Rain

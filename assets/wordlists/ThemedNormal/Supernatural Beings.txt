@@ -1,0 +1,16 @@
+Elf
+Fairy
+Monster
+Spirit
+Vampire
+Genie
+Demon
+Dwarf
+Giant
+Goblin
+Werewolf
+Ogre
+Ghoul
+Sandman
+Phantom
+Zombie

@@ -1,0 +1,16 @@
+Bamboo
+Bark
+Clay
+Cotton
+Flint
+Gold
+Hemp
+Jute
+Leather
+Metal
+Sand
+Silver
+Soil
+Stone
+Wood
+Wool

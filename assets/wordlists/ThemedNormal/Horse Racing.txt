@@ -1,0 +1,16 @@
+Jockey
+Turf
+Odds
+Track
+Bet
+Paddock
+Gallop
+Post
+Win
+Colt
+Blinders
+Trainer
+Harness
+Furlong
+Saddle
+Derby

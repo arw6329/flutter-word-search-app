@@ -1,0 +1,16 @@
+Author
+Issue
+Edge
+Collate
+Impression
+Back Stripe
+Verso
+Binding
+Watermark
+Cover
+Edition
+Signature
+Spine
+ISBN
+Sheets
+Grading

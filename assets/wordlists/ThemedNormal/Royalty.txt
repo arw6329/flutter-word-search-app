@@ -1,0 +1,16 @@
+Queen
+King
+Jewels
+Heir
+Majesty
+Palace
+Castle
+Monarch
+Emperor
+Duchess
+Dynasty
+Throne
+Count
+Empress
+Luxury
+Duke

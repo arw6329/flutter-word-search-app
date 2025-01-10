@@ -1,0 +1,16 @@
+Leaves
+Grass
+Herd
+Desert
+Trunk
+Habitat
+Africa
+Bark
+Tusk
+Safari
+Asia
+Savannah
+Jungle
+Mammal
+Huge
+Forest

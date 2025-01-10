@@ -1,0 +1,16 @@
+Highland
+Coral Reef
+Grassland
+Meadow
+Delta
+Polar
+Alpine
+Swamp
+Ocean
+Forest
+Aquatic
+Jungle
+Tundra
+Woodland
+Arctic
+Abyssal

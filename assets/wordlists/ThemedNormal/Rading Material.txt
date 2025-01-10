@@ -1,0 +1,16 @@
+Journal
+Comic
+Magazine
+Atlas
+Brochure
+Blog
+Script
+Catalog
+Letter
+Biography
+Newspaper
+Novel
+Leaflet
+Website
+Textbook
+Poetry

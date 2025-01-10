@@ -1,0 +1,16 @@
+Solitaire
+Rummy
+Sevens
+Hearts
+Pyramid
+Bridge
+Black Widow
+Whist
+Blackjack
+Cribbage
+Poker
+Faro
+Rainbow
+Baccarat
+Clock
+Canasta

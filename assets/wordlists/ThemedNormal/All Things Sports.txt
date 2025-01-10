@@ -1,0 +1,16 @@
+Teams
+Skill
+Loss
+Win
+Venues
+Champion
+Equipment
+Referee
+Matches
+Draw
+Umpires
+Ladder
+Round
+Safety
+League
+Social

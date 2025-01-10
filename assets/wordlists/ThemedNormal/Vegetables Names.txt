@@ -1,0 +1,16 @@
+Potato
+Cabbage
+Carrot
+Spinach
+Beetroot
+Ginger
+Garlic
+Radish
+Pea
+Turnip
+Cucumber
+Eggplant
+Pumpkin
+Onion
+Tomato
+Lettuce

@@ -1,0 +1,16 @@
+Reports
+Dispatcher
+Mace
+Crime
+Pepper Spray
+Badge
+Hat
+Buckle
+Handcuffs
+Taser
+Canine
+Radio
+Siren
+Name Tag
+Patrol Car
+Shoes

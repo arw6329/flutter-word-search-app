@@ -1,0 +1,16 @@
+Locker
+Vase
+Rug
+Bookshelf
+Whiteboard
+Table
+Chair
+Calendar
+Printer
+Phone
+Bench
+Lamp
+Paintings
+Desk
+Cabinet
+Trash Bin

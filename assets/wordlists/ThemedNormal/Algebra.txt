@@ -1,0 +1,20 @@
+factor
+constant
+term
+exponent
+equation
+absolute
+sequence
+variable
+operation
+additive
+negative
+function
+solve
+positive
+simplify
+inverse
+square root
+binomial
+power
+set

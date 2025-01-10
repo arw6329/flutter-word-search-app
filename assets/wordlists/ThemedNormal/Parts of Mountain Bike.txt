@@ -1,0 +1,16 @@
+Pedals
+Stem
+Chain
+Suspension
+Hubs
+Rim
+Brakes
+Grips
+Tires
+Shifters
+Discs
+Drailier
+Frame
+Crank
+Forks
+Helmet

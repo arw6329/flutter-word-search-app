@@ -1,0 +1,16 @@
+View
+Message
+Reply
+Junk
+New
+Folders
+Attachment
+Drafts
+Font
+Delete
+Mailbox
+Bounce
+Send
+Forward
+Inbox
+Trash

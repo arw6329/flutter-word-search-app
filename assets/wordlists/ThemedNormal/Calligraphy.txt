@@ -1,0 +1,16 @@
+Dip Pen
+Arch
+Stroke
+Ink Brush
+Quill
+Hairline
+Descender
+Apex
+Decorative
+Baseline
+Fountain Pen
+Ascender
+Serif
+Counter
+Calligram
+Deboss

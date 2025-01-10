@@ -1,0 +1,16 @@
+Duplication
+Somatic Cell
+Anticodon
+Mutagen
+Uracil
+Deletion
+Guanine
+Cytosine
+Thymine
+Translation
+Dna
+Adenine
+Genotype
+Silent
+Gamete
+Missense

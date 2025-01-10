@@ -1,0 +1,16 @@
+Coyote
+Rabbit
+Fox
+Forest
+Bat
+Deer
+Quail
+Jungle
+Bear
+Moose
+Skunk
+Eagle
+Owl
+Snake
+Raccoon
+Geese

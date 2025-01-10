@@ -1,0 +1,20 @@
+Candid
+Body Copy
+Bleed
+Ladder
+Spine
+Serif
+Cover
+Justify
+Page
+Theme
+Closing
+Scenario
+Copy Block
+Opening
+Gutter
+Headline
+Spread
+Caption
+Signature
+Quote

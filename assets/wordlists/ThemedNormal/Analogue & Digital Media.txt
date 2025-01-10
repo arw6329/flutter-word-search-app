@@ -1,0 +1,19 @@
+Tape
+Zip Disc
+CD Player
+Analogue
+Radio
+Film
+Digital
+Record
+Dish TV
+Hard Drive
+Cartridge
+Mini Disc
+Vinyl
+Walkman
+Cassette
+SD Card
+USB
+VHS
+DVD

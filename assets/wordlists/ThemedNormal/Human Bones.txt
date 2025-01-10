@@ -1,0 +1,16 @@
+Hyoid
+Maxillae
+Incus
+Hamate
+Femur
+Lumbar
+Scapula
+Vomer
+Cervical
+Talus
+Sacrum
+Clavicles
+Palatine
+Mandible
+Lunate
+Tibia

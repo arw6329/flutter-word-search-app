@@ -1,0 +1,16 @@
+Bobcat
+Owl
+Badger
+Eagle
+Elk
+Coyote
+Chipmunk
+Gazelle
+Fox
+Deer
+Wolf
+Squirrel
+Beaver
+Rabbit
+Leopard
+Bison

@@ -1,0 +1,16 @@
+Cards
+Bidding
+Player
+Major
+Leads
+Hold
+Aces
+Minor
+Hands
+Team
+Finesse
+Tricks
+Void
+Penalty
+Doubled
+Sets

@@ -1,0 +1,16 @@
+Whip
+Cattle
+Sheriff
+Badge
+Leather
+Spurs
+Horses
+Carriage
+Banker
+Cowgirl
+Lasso
+Saddle
+Blacksmith
+Saloon
+Draw
+Boots

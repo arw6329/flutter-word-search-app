@@ -1,0 +1,16 @@
+Robot
+Clown
+Devil
+Angel
+Skeleton
+Scarecrow
+Zombie
+Wizard
+Fairy
+Ghost
+Fireman
+Spider
+Pumpkin
+Cowboy
+Mummy
+Witch

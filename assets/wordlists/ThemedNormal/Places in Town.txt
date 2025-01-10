@@ -1,0 +1,16 @@
+Library
+Museum
+River
+Theater
+Supermarket
+Bookshop
+Airport
+Bank
+Restaurant
+Cafe
+Hospital
+Playground
+Parking
+Church
+Garage
+Hotel

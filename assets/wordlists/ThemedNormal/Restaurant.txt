@@ -1,0 +1,16 @@
+Customer
+Waiter
+Bill
+Cooks
+Tables
+Order
+Chef
+Coffee
+Appetizer
+Glasses
+Manager
+Waitress
+Drinks
+Entree
+Knife
+Cashier

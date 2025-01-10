@@ -1,0 +1,16 @@
+Refund
+Buyer
+Purchase
+category
+Offer
+Feedback
+Payment
+Packaging
+Gallery
+Auction
+Bid
+Reserve
+Fixed Price
+Listing
+Wish List
+Seller

@@ -1,0 +1,16 @@
+Booth
+Cashier
+Chefs
+Cleaner
+Planners
+Cooks
+Food
+General
+Host
+Hotel
+Janitor
+Lodging
+Luggage
+Motel
+Restaurant
+Service

@@ -1,0 +1,16 @@
+Office
+Shop
+Bar
+House
+Dam
+Night Club
+Hospital
+Airport
+Cafe
+Factory
+School
+College
+Sky Scraper
+Restaurant
+Salon
+Bridge

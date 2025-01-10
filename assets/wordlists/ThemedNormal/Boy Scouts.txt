@@ -1,0 +1,16 @@
+District
+Volunteer
+Rank
+Award
+Unit
+Camp
+Medal
+Council
+Merit
+Bugler
+Honor
+Eagle
+Squad
+Badge
+Veteran
+Patrol

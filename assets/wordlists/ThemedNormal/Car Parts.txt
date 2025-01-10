@@ -1,0 +1,16 @@
+Piston
+Crank Shaft
+Bumper
+Gasket
+Engine
+Seats
+Camshaft
+Fuel Tank
+Door
+Clutch
+Dashboard
+Exhaust
+Muffler
+Brake
+Radiator
+Grille

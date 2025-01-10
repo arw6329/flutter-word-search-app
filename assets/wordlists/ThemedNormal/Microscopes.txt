@@ -1,0 +1,20 @@
+Base
+Cells
+Focus
+Heat Fix
+Title
+Border
+Arm
+Eyepiece
+Iodine
+Low Power
+Stain
+Fine
+Mirror
+Coarse
+Wet Mount
+Slide
+Dry Mount
+Lens
+Legs
+Stage

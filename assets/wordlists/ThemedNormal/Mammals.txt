@@ -1,0 +1,16 @@
+Whale
+Monkey
+Cow
+Seal
+Buffalo
+Rabbit
+Dolphin
+Goat
+Horse
+Bear
+Sheep
+Dog
+Human
+Lion
+Elephant
+Squirrel

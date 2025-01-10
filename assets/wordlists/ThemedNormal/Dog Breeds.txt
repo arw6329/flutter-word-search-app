@@ -1,0 +1,29 @@
+Bulldog
+Poodle
+Beagle
+Rottweiler
+Dachshund
+Boxer
+Chihuahua
+Great Dane
+Shih Tzu
+Maltese
+Cane Corso
+Akita
+Samoyed
+Vizsla
+Collie
+Pomeranian
+Greyhound
+Weimaraner
+Havanese
+Whippet
+Shiba Inu
+Husky
+Pug
+Chow Chow
+Corgi
+Basenji
+Sheltie
+Dobermann
+Dalmatian

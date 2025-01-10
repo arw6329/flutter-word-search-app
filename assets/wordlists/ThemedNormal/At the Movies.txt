@@ -1,0 +1,16 @@
+Comedy
+Horror
+Popcorn
+Seats
+Drama
+Stage
+Snacks
+Romance
+Stars
+Thriller
+Screen
+Action
+Projector
+Drinks
+Suspense
+Actors

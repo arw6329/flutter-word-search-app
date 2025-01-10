@@ -1,0 +1,16 @@
+Crescent
+Axis
+Quarter
+Eclipse
+Full Moon
+Tidal Bulge
+New Moon
+Waxing
+Revolve
+High Tide
+Equinox
+Rotate
+Low Tide
+Waning
+Neap Tide
+Spring

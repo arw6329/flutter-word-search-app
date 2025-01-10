@@ -1,0 +1,16 @@
+Vote
+Choose
+Campaign
+Senator
+Term
+Exit Poll
+Elector
+Election
+Delegate
+Tally
+Ballot
+Loser
+Party
+Democrat
+Caucus
+Winner

@@ -1,0 +1,16 @@
+Seamount
+Abyss
+Hills
+Submarine
+Shore
+Islands
+Trench
+Reef
+Coral
+Mounts
+Slope
+Continental
+Canyon
+Ridge
+Margin
+Rift Valley

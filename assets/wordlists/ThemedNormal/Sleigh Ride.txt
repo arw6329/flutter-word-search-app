@@ -1,0 +1,16 @@
+Load
+Seats
+Carriage
+Pores
+Boots
+Icy
+Steer
+Snow
+Blankets
+Vehicle
+Bells
+Driver
+Slide
+Pulling
+Chilly
+Horse

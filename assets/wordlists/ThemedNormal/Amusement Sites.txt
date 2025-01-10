@@ -1,0 +1,16 @@
+Arena
+Beach
+Aquarium
+Slides
+Casino
+Polo Field
+Club
+Gym
+Ranges
+Tours
+Arcade
+Ice Rink
+Bike Path
+Cinema
+Zoo
+Parlor

@@ -1,0 +1,20 @@
+account
+payee
+penalty
+lender
+deposit
+checkbook
+interest
+balance
+statement
+money order
+mutual fund
+loan
+investment
+withdraw
+budget
+treasury
+bank
+debit card
+credit card
+fees

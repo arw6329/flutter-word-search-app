@@ -1,0 +1,16 @@
+Motel
+Bungalow
+Inn
+Hotel
+Apartment
+Resort
+Yurt
+Campsite
+Cabin
+Castle
+Cave
+House Boat
+Penthouse
+Guest House
+Villa
+Lodge

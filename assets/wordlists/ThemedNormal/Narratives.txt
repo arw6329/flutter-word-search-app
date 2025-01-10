@@ -1,0 +1,16 @@
+Action
+Place
+End
+Story
+Narrative
+Hear
+Middle
+Character
+Setting
+Punctuation
+Dialogue
+Smell
+Sight
+Beginning
+Time
+Entertain

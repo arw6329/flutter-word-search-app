@@ -1,0 +1,16 @@
+Truck
+Kayak
+Dogsled
+Plane
+Subway
+Bicycle
+Buggy
+Raft
+Ship
+Jet
+Boat
+Horseback
+Car
+Train
+Walk
+Scooter

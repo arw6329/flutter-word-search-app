@@ -1,0 +1,16 @@
+Nurse
+Paramedic
+Waiter
+Programmer
+Plumber
+Janitor
+Lawyer
+Architect
+Artist
+Actor
+Curator
+Teacher
+Consultant
+Accountant
+Doctor
+Pilot

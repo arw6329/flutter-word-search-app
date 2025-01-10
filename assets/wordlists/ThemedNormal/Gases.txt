@@ -1,0 +1,17 @@
+Nitrogen
+Hydrogen
+Oxygen
+Helium
+Argon
+Neon
+Chlorine
+Methane
+Nitric Oxide
+Freon
+Fluorine
+Xenon
+Radon
+Krypton
+Ammonia
+Hexane
+Phosphine

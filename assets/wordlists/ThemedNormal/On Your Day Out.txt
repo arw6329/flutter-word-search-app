@@ -1,0 +1,16 @@
+Farm
+Art Gallery
+Spa
+Maze
+Swimming
+Festival
+Beach
+Museum
+Ice Rink
+Castle
+Cinema
+Zoo
+Playground
+Golf
+Shopping
+Theme Park

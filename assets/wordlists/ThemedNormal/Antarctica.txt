@@ -1,0 +1,16 @@
+Orca
+Ablation
+Wind
+Avalanche
+Desert
+Blizzard
+Glacier
+Cold
+Arid
+Ridges
+Penguins
+Seal
+Rafting
+Brash Ice
+Black Ice
+Krill

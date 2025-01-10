@@ -1,0 +1,16 @@
+Pancake
+Fruit
+Bacon
+Sausage
+Bread
+Eggs
+Cereal
+Hash Brown
+Oatmeal
+Bagel
+Muffin
+Omelet
+Toast
+Croissant
+Doughnut
+Waffle

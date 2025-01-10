@@ -1,0 +1,19 @@
+Fridge
+Bathtub
+Chairs
+Shower Head
+Computer
+Dining Room
+Microwave
+Bathroom
+Garden
+Bookshelf
+Kitchen
+Bedroom
+Yard
+Garage
+Television
+Drawer
+Oven
+Attic
+Living Room

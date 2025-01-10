@@ -1,0 +1,20 @@
+Actor
+Actress
+Adventure
+Animation
+Camera
+Cartoon
+Censor
+Channel
+Character
+Comedy
+Drama
+Credits
+Crime
+Episode
+Music
+Mystery
+Series
+Sitcom
+Soap Opera
+Titles

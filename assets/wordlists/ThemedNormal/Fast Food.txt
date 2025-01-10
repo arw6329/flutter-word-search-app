@@ -1,0 +1,16 @@
+Burrito
+Burger
+Coleslaw
+Fries
+Nuggets
+HotDog
+Milkshake
+Sandwich
+Taco
+Cola
+Coffee
+Onion Rings
+Ketchup
+Mustard
+Relish
+Salad

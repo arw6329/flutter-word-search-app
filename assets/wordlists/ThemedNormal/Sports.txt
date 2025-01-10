@@ -1,0 +1,16 @@
+Tennis
+Archery
+Skiing
+Football
+Cycling
+Rugby
+Volleyball
+Basketball
+Badminton
+Hockey
+Skating
+Golf
+Cricket
+Soccer
+Billiards
+Polo

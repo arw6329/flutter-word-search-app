@@ -1,0 +1,20 @@
+Pacemaker
+Carotid
+Capillary
+Plasma
+Tension
+Blood
+Jugular
+Pressure
+Systole
+Valve
+Aorta
+Red cells
+Vein
+Angina
+Pulse
+Heart
+Oxygen
+Arrest
+Artery
+Diastole

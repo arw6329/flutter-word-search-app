@@ -1,0 +1,16 @@
+Ultrasound
+Counselor
+Paramedic
+Anesthetist
+Ambulance
+Nurse
+Medication
+Ward
+Cafe
+Shop
+Oxygen Mask
+Bed
+Patient
+X-Ray
+Doctor
+Surgeon

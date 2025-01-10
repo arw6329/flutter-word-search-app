@@ -1,0 +1,16 @@
+Cafe
+Museum
+Church
+Cinema
+School
+Library
+Restaurant
+Supermarket
+Factory
+Hospital
+Airport
+Bank
+Bakery
+Hotel
+Bus Stop
+Gas Station

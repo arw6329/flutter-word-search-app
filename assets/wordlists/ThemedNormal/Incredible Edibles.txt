@@ -1,0 +1,16 @@
+Cereal
+Bologna
+Hamburger
+Hot Dog
+Tacos
+Bread
+Pretzels
+Jelly
+Macaroni
+Pizza
+Potato
+Chips
+Fruit Snack
+Lasagna
+Sandwich
+Pasta

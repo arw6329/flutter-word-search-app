@@ -1,0 +1,16 @@
+Juicer
+Blender
+Gloves
+Dishwasher
+Fridge
+Fork
+Faucet
+Counter
+Bowl
+Kettle
+Oven
+Cup
+Spoon
+Freezer
+Toaster
+Canister

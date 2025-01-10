@@ -1,0 +1,16 @@
+Riddles
+Gry
+Jumble
+Kakuro
+KenKen
+Jigsaw
+Insight
+Nikoli
+Maze
+Sudoku
+Crossword
+Doublets
+Fractal
+Logic
+Cryptic
+Anagram

@@ -1,0 +1,16 @@
+Vendor
+Mortgage
+Agreement
+Deposit
+Lawyer
+Freehold
+Tender
+Finance
+Agent
+Offer
+Tenant
+Title
+Purchaser
+Auction
+Market Value
+Commission

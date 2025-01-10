@@ -1,0 +1,16 @@
+Clock
+Chair
+Computer
+Ink
+Coffee
+Scanner
+Files
+Paper
+Monitor
+Drawer
+Printer
+Books
+Labels
+Desks
+Pads
+Rugs

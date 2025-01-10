@@ -1,0 +1,16 @@
+Wall
+Boundary
+Dam
+Limit
+Fence
+Palisade
+Bulwark
+Gully
+Ditch
+Obstacle
+Railing
+Barricade
+Curtain
+Moat
+Hurdle
+Stockade

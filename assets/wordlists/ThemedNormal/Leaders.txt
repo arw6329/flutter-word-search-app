@@ -1,0 +1,16 @@
+Bishop
+Sultan
+Chief
+Father
+Pope
+Guru
+Ruler
+King
+Captain
+Mother
+Authority
+Sheik
+Dictator
+Emperor
+Baron
+Admiral

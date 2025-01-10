@@ -1,0 +1,16 @@
+Sandy
+Chalky
+Stony
+Loamy
+Insects
+Soil
+Clay
+Bedrock
+Nutrients
+Minerals
+Roots
+Fertile
+Alkaline
+Water
+Particles
+Neutral

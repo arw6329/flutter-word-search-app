@@ -1,0 +1,16 @@
+Run
+Flag
+Holding
+Defense
+Kick
+Yards
+Line
+Field Goal
+Referee
+Punt
+Downs
+Penalty
+Offense
+Pass
+Tackle
+Half

@@ -1,0 +1,16 @@
+Evaporite
+Jasperoid
+Coquina
+Gneiss
+Diabase
+Diorite
+Chert
+Gabbro
+Hornfels
+Andesite
+Flint
+Chalk
+Basalt
+Basanite
+Granite
+Dacite

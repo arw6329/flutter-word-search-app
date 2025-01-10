@@ -1,0 +1,16 @@
+Clock
+Decade
+Years
+Minutes
+Stopwatch
+Days
+Seconds
+Alarm
+Infinity
+Forever
+Hours
+Weeks
+Months
+Century
+Millennium
+Long Hand

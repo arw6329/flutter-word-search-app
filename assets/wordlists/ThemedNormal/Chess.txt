@@ -1,0 +1,16 @@
+Gambit
+Knight
+Castling
+Blocked
+Lose
+Piece
+Attack
+Chessboard
+Queen
+Pawn
+Fork
+Sacrifice
+Capture
+Win
+King
+Bishop

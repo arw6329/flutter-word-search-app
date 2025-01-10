@@ -1,0 +1,16 @@
+Criminal
+Witness
+Guilty
+Claim
+Bail
+Verdict
+Jury
+Equity
+Arrest
+Oath
+Trial
+Attorney
+Acquit
+Court
+Innocent
+Appeal

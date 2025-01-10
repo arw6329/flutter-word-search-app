@@ -1,0 +1,16 @@
+Teeth
+Tongue
+Head
+Neck
+Beard
+Eyelashes
+Mustache
+Eyebrows
+Lips
+Nose
+Hair
+Mouth
+Chin
+Ears
+Cheeks
+Dimple

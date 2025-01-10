@@ -1,0 +1,16 @@
+Large
+Small
+Closed
+Ends
+Contents
+Top
+Flaps
+Big
+Full
+Cardboard
+Light
+Open
+Bottom
+Heavy
+Sides
+Empty

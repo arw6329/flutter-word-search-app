@@ -1,0 +1,16 @@
+Commando
+Battalion
+Forces
+Defense
+Weapon
+Army
+Regiment
+Troops
+Captain
+War
+Attack
+Soldiers
+Air Force
+Corps
+Military
+Officer

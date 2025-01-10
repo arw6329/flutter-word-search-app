@@ -1,0 +1,16 @@
+Verse
+Melody
+Treble
+Acoustic
+Tempo
+Bass
+Title
+Theme
+Genre
+Vocal
+Solo
+Chorus
+Duet
+Ballad
+Anthem
+Beat

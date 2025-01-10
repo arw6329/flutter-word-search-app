@@ -1,0 +1,16 @@
+Vaccine
+Clinic
+Therapy
+Cure
+Health
+Healing
+Emergency
+Diagnosis
+Treatment
+Genetics
+Surgery
+Care
+Symptoms
+Illness
+Science
+Lab

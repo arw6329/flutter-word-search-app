@@ -1,0 +1,16 @@
+Vesicle
+Nevus
+Papule
+Eczema
+Eschar
+cyst
+Abrasion
+Ulcer
+Macule
+Wheal
+Acne
+Lesion
+Pustule
+Fissure
+Verruca
+Albinism

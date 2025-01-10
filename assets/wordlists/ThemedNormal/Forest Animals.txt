@@ -1,0 +1,16 @@
+Bear
+Raccoon
+Snake
+Marten
+Moose
+Cougar
+Hedgehog
+Badger
+Porcupine
+Rabbit
+Chipmunk
+Squirrel
+Skunk
+Weasel
+Bison
+Beaver

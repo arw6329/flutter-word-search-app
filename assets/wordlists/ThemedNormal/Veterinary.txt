@@ -1,0 +1,16 @@
+Buffalo
+Thermometer
+Veterinary
+Scale
+Health
+Omnivore
+Cattle
+Bull
+Stethoscope
+Surgery
+Medicine
+Endoscope
+Cow
+Pathology
+Science
+Doctor

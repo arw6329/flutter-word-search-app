@@ -1,0 +1,16 @@
+Clothing
+Airline
+Chemicals
+Civic
+Bakery
+Garment
+Labor
+Financial
+Banking
+Education
+Arts
+Dairy
+Catering
+Grocery
+Health
+Data

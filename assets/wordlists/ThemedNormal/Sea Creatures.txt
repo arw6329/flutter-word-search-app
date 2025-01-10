@@ -1,0 +1,16 @@
+Albacore
+Conch
+Abalone
+Halibut
+Anchovy
+Fugu
+Barracuda
+Coral
+Oyster
+Hake
+Octopus
+Barnacle
+Grouper
+Haddock
+Clown Fish
+Flounder

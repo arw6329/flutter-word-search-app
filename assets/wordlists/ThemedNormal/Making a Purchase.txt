@@ -1,0 +1,16 @@
+Price
+Discount
+Receipt
+Coupon
+Credit
+Shop
+Cash
+Online
+Code
+Returns
+Delivery
+Order
+Stock
+Sale
+Bag
+Gift Card

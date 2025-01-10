@@ -1,0 +1,19 @@
+Liquid
+Respiration
+Animals
+Gas
+Consumption
+Ground Water
+Lake
+Evaporation
+River
+Plants
+Glacier
+Clouds
+Melt
+Ocean
+Excretion
+Solid
+Flow
+Soil
+Percolation

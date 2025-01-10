@@ -1,0 +1,20 @@
+Coot
+Duck
+Heron
+Stork
+Tern
+Skimmer
+Pelican
+Egret
+Goose
+Penguin
+Osprey
+Dipper
+Loon
+Flamingo
+Swan
+Sea Gull
+Crane
+Puffin
+Ibis
+Stilt

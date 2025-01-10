@@ -1,0 +1,16 @@
+Aggressive
+Honest
+Arrogant
+Friendly
+Scared
+Eye Contact
+Lonely
+Sensitive
+Passive
+Assertive
+Selfish
+Quiet
+Shy
+Hostile
+Behaviors
+Polite

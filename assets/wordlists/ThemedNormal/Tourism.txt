@@ -1,0 +1,16 @@
+Leisure
+Shopping
+Adventure
+Education
+Domestic
+Religion
+Health
+Youth
+Cultural
+Business
+Regional
+Tourist
+Inbound
+Tourism
+Incentive
+Outbound

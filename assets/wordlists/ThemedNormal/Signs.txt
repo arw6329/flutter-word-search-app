@@ -1,0 +1,20 @@
+Flood
+Closed
+Emergency
+Keep Out
+No Entry
+Bumps
+Turn Left
+Walk
+Slow
+School
+Diversion
+Police
+Warning
+Dead End
+Yield
+Entrance
+For Sale
+Stop
+Open
+One Way

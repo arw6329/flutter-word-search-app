@@ -1,0 +1,16 @@
+Hardness
+Gas
+Solid
+Atom
+Liquid
+Motion
+Length
+Color
+Density
+Matter
+Volume
+Toughness
+Mass
+Plasma
+Odor
+Temperature

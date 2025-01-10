@@ -1,0 +1,16 @@
+Discount
+Store
+Bag
+Receipt
+Aisle
+Credit Card
+Food
+Cash
+Gift
+Bargain
+Voucher
+Clothing
+Refund
+Scan
+Cart
+Price Tag

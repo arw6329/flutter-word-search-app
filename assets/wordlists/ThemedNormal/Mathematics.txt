@@ -1,0 +1,16 @@
+Sum
+Division
+Ten
+Eight
+Three
+Multiply
+Addition
+Seven
+Power
+Four
+Five
+Two
+Six
+Minus
+One
+Nine
