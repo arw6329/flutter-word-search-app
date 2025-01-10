@@ -7,16 +7,37 @@ import 'package:word_search_app/word_search/puzzle_builder.dart';
 import 'package:word_search_app/word_search/widgets/word_search_highlight.dart';
 
 class WordSearchPuzzle extends StatefulWidget {
-    WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required this.onSolveWord, required this.onSolve}):
+    WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required this.onSolveWord, required this.onSolve, this.onSerializedStateChange}):
+        _initialSolvedWords = {},
         _puzzleBuilder = PuzzleBuilder(rows: rows, columns: columns, words: words);
+
+    WordSearchPuzzle._fromDeserialized({super.key, required PuzzleBuilder puzzleBuilder, required Set<Placement> initialSolvedWords, required this.onSolveWord, required this.onSolve, this.onSerializedStateChange}):
+        words = puzzleBuilder.placements.map((placement) => placement.word).toList(),
+        rows = puzzleBuilder.rows,
+        columns = puzzleBuilder.columns,
+        _puzzleBuilder = puzzleBuilder,
+        _initialSolvedWords = initialSolvedWords;
+
+    factory WordSearchPuzzle.fromSerializedState({Key? key, required WordSearchPuzzleSerializableState state, required onSolveWord, required onSolve, void Function(WordSearchPuzzleSerializableState state)? onSerializedStateChange}) {
+        return WordSearchPuzzle._fromDeserialized(
+            key: key,
+            puzzleBuilder: state.puzzleBuilder,
+            initialSolvedWords: state.solvedWords.toSet(),
+            onSolveWord: onSolveWord,
+            onSolve: onSolve,
+            onSerializedStateChange: onSerializedStateChange
+        );
+    }
 
     final int rows;
     final int columns;
     final List<String> words;
     final void Function(String word) onSolveWord;
     final void Function() onSolve;
+    final void Function(WordSearchPuzzleSerializableState state)? onSerializedStateChange;
 
     final PuzzleBuilder _puzzleBuilder;
+    final Set<Placement> _initialSolvedWords;
 
     @override
     State<WordSearchPuzzle> createState() => _WordSearchPuzzleState();
@@ -31,6 +52,12 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
     int? _pointerCurrentColumn;
 
     final GlobalKey _gridView = GlobalKey();
+
+    @override
+    void initState() {
+        super.initState();
+        _solvedWords.addAll(widget._initialSolvedWords);
+    }
 
     (int row, int column) _pointerEventToRowAndColumn(PointerEvent event) {
         final row = (event.localPosition.dy / (_gridView.currentContext!.size!.height / widget.rows))
@@ -88,7 +115,17 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                 if(matchedWord != null && !_isWordSolved(matchedWord)) {
                     dev.log('Solved word $matchedWord');
                     _solvedWords.add(Placement(row: _activeHighlightStartRow!, column: _activeHighlightStartColumn!, direction: direction, word: matchedWord));
+                    
                     widget.onSolveWord(matchedWord);
+
+                    if(widget.onSerializedStateChange != null) {
+                        widget.onSerializedStateChange!.call(
+                            WordSearchPuzzleSerializableState(
+                                solvedWords: _solvedWords.toList(),
+                                puzzleBuilder: widget._puzzleBuilder
+                            )
+                        );
+                    }
 
                     if(_solvedWords.length == widget.words.length) {
                         widget.onSolve();
@@ -185,6 +222,25 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                     ),
                 )
             )
+        );
+    }
+}
+
+class WordSearchPuzzleSerializableState {
+    const WordSearchPuzzleSerializableState({required this.solvedWords, required this.puzzleBuilder});
+
+    final List<Placement> solvedWords;
+    final PuzzleBuilder puzzleBuilder;
+
+    Map toJson() => {
+        'solvedWords': solvedWords,
+        'puzzleBuilder': puzzleBuilder
+    };
+
+    factory WordSearchPuzzleSerializableState.fromJson(Map<String, dynamic> jsonObject) {
+        return WordSearchPuzzleSerializableState(
+            solvedWords: (jsonObject['solvedWords'] as List).map((placementJson) => Placement.fromJson(placementJson)).toList(),
+            puzzleBuilder: PuzzleBuilder.fromJson(jsonObject['puzzleBuilder'])
         );
     }
 }

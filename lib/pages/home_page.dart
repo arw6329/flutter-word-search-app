@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:word_search_app/gamemodes/themed_normal_gamemode.dart';
 import 'package:word_search_app/large_common_button.dart';
 import 'package:word_search_app/pages/word_search_page.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -39,7 +40,7 @@ class HomePage extends StatelessWidget {
                                         LargeCommonButton(
                                             onPressed: () {
                                                 Navigator.of(context).push(
-                                                    MaterialPageRoute(builder: (context) => const WordSearchPage())
+                                                    MaterialPageRoute(builder: (context) => const WordSearchPage(gamemode: ThemedNormalGamemode()))
                                                 );
                                             },
                                             child: Row(

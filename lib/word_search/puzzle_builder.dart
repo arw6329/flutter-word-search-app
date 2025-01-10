@@ -51,6 +51,15 @@ enum Direction {
             }
         }
     }
+
+    Map toJson() => {
+        'dx': dx,
+        'dy': dy
+    };
+
+    factory Direction.fromJson(Map<String, dynamic> jsonObject) {
+        return Direction.values.firstWhere((dir) => (dir.dx, dir.dy) == (jsonObject['dx'], jsonObject['dy']));
+    }
 }
 
 class Placement {
@@ -111,6 +120,17 @@ class Placement {
             yield (row + direction.dy * i, column + direction.dx * i);
         }
     }
+
+    Map toJson() => {
+        'row': row,
+        'column': column,
+        'direction': direction,
+        'word': word
+    };
+
+    factory Placement.fromJson(Map<String, dynamic> jsonObject) {
+        return Placement(row: jsonObject['row'], column: jsonObject['column'], direction: Direction.fromJson(jsonObject['direction']), word: jsonObject['word']);
+    }
 }
 
 class PuzzleBuilder {
@@ -119,6 +139,11 @@ class PuzzleBuilder {
         placements = [] {
             _buildPuzzle(words);
         }
+
+    PuzzleBuilder._fromDeserialized({required this.placements, required List<List<int>> puzzle}):
+        rows = puzzle.length,
+        columns = puzzle[0].length,
+        _puzzle = puzzle;
 
     final int rows;
     final int columns;
@@ -254,5 +279,17 @@ class PuzzleBuilder {
         }
 
         return sequence;
+    }
+
+    Map toJson() => {
+        'puzzle': _puzzle,
+        'placements': placements
+    };
+
+    factory PuzzleBuilder.fromJson(Map<String, dynamic> jsonObject) {
+        return PuzzleBuilder._fromDeserialized(
+            placements: (jsonObject['placements'] as List).map((e) => Placement.fromJson(e)).toList(),
+            puzzle: (jsonObject['puzzle'] as List).cast<List>().map((e) => e.cast<int>()).toList()
+        );
     }
 }
