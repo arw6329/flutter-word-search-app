@@ -38,6 +38,10 @@ class WordSearchPage extends StatelessWidget {
         ));
     }
 
+    Future<void> _clearSavedState() async {
+        await deleteFile('$saveStateDirectory/${gamemode.name}');
+    }
+
     @override
     Widget build(BuildContext context) {
         Future<SaveStateOrNewWordList>
@@ -74,8 +78,9 @@ class WordSearchPage extends StatelessWidget {
                             ? snapshot.data!.saveState != null
                                 ? WordSearch.fromSerializedState(
                                     state: snapshot.data!.saveState!.wordSearchState,
-                                    onSolve: () {
+                                    onSolve: () async {
                                         showSolvedPuzzleDialog(context, gamemode);
+                                        await _clearSavedState();
                                     },
                                     onSerializedStateChange: (state) async {
                                         await _saveStateToFile(title, state);
@@ -85,8 +90,9 @@ class WordSearchPage extends StatelessWidget {
                                     rows: 15,
                                     columns: 12,
                                     words: snapshot.data!.wordlist!.words,
-                                    onSolve: () {
+                                    onSolve: () async {
                                         showSolvedPuzzleDialog(context, gamemode);
+                                        await _clearSavedState();
                                     },
                                     onSerializedStateChange: (state) async {
                                         await _saveStateToFile(title, state);

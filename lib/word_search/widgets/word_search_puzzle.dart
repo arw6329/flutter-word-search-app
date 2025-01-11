@@ -119,7 +119,7 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                     
                     widget.onSolveWord(matchedWord);
 
-                    if(widget.onSerializedStateChange != null) {
+                    if(widget.onSerializedStateChange != null && _solvedWords.length != widget.words.length) {
                         widget.onSerializedStateChange!.call(
                             WordSearchPuzzleSerializableState(
                                 solvedWords: _solvedWords.toList(),

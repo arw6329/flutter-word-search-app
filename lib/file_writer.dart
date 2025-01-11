@@ -30,3 +30,8 @@ Future<void> mkdir(String filePath) async {
     final directory = Directory('${await _localPath}/$filePath');
     await directory.create();
 }
+
+Future<void> deleteFile(String fileName) async {
+    final file = File('${await _localPath}/$fileName');
+    await file.delete();
+}
