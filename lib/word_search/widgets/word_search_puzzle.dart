@@ -181,55 +181,53 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
             margin: EdgeInsets.all(5),
             child: Container(
                 padding: EdgeInsets.all(5),
-                child: Flexible(
-                    child: AspectRatio(
-                        aspectRatio: widget.columns / widget.rows,
-                        child: Stack(
-                            children: [
-                                IgnorePointer(
-                                    child: LayoutBuilder(
-                                        builder: (BuildContext context, BoxConstraints constraints) {
-                                            return Stack(
-                                                children: _getHighlights(constraints)
-                                            );
-                                        },
-                                    ),
+                child: AspectRatio(
+                    aspectRatio: widget.columns / widget.rows,
+                    child: Stack(
+                        children: [
+                            IgnorePointer(
+                                child: LayoutBuilder(
+                                    builder: (BuildContext context, BoxConstraints constraints) {
+                                        return Stack(
+                                            children: _getHighlights(constraints)
+                                        );
+                                    },
                                 ),
-                                Listener(
-                                    onPointerDown: _startHighlight,
-                                    onPointerMove: _updateHighlight,
-                                    onPointerUp: _cancelHighlight,
-                                    onPointerCancel: _cancelHighlight,
-                                    child: GridView.count(
-                                        key: _gridView,
-                                        physics: const NeverScrollableScrollPhysics(),
-                                        childAspectRatio: 1,
-                                        crossAxisCount: widget.columns,
-                                        shrinkWrap: true,
-                                        children: List.generate(widget.rows * widget.columns, (index) {
-                                            var row = (index / widget.columns).floor();
-                                            var column = index % widget.columns;
-                                            
-                                            bool isPlacedWord = false;
-                                            if(kDebugMode) {
-                                                isPlacedWord = widget._puzzleBuilder.placements.any((placement) => placement.containsPoint((row, column)));
-                                            }
+                            ),
+                            Listener(
+                                onPointerDown: _startHighlight,
+                                onPointerMove: _updateHighlight,
+                                onPointerUp: _cancelHighlight,
+                                onPointerCancel: _cancelHighlight,
+                                child: GridView.count(
+                                    key: _gridView,
+                                    physics: const NeverScrollableScrollPhysics(),
+                                    childAspectRatio: 1,
+                                    crossAxisCount: widget.columns,
+                                    shrinkWrap: true,
+                                    children: List.generate(widget.rows * widget.columns, (index) {
+                                        var row = (index / widget.columns).floor();
+                                        var column = index % widget.columns;
+                                        
+                                        bool isPlacedWord = false;
+                                        if(kDebugMode) {
+                                            isPlacedWord = widget._puzzleBuilder.placements.any((placement) => placement.containsPoint((row, column)));
+                                        }
 
-                                            return Center(
-                                                child: Text(
-                                                    widget._puzzleBuilder.charAt(row, column),
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.bold,
-                                                        color: isPlacedWord ? Colors.red : Color.fromRGBO(22, 22, 22, 1)
-                                                    ),
+                                        return Center(
+                                            child: Text(
+                                                widget._puzzleBuilder.charAt(row, column),
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: isPlacedWord ? Colors.red : Color.fromRGBO(22, 22, 22, 1)
                                                 )
-                                            );
-                                        })
-                                    ),
+                                            )
+                                        );
+                                    })
                                 )
-                            ]
-                        ),
-                    ),
+                            )
+                        ]
+                    )
                 )
             )
         );
