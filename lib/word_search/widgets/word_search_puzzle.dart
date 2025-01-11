@@ -1,6 +1,7 @@
 import 'dart:developer' as dev;
 import 'dart:math';
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:word_search_app/word_search/puzzle_builder.dart';
@@ -208,13 +209,18 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
                                         children: List.generate(widget.rows * widget.columns, (index) {
                                             var row = (index / widget.columns).floor();
                                             var column = index % widget.columns;
-                                                    
+                                            
+                                            bool isPlacedWord = false;
+                                            if(kDebugMode) {
+                                                isPlacedWord = widget._puzzleBuilder.placements.any((placement) => placement.containsPoint((row, column)));
+                                            }
+
                                             return Center(
                                                 child: Text(
                                                     widget._puzzleBuilder.charAt(row, column),
                                                     style: TextStyle(
                                                         fontWeight: FontWeight.bold,
-                                                        color: Color.fromRGBO(22, 22, 22, 1)
+                                                        color: isPlacedWord ? Colors.red : Color.fromRGBO(22, 22, 22, 1)
                                                     ),
                                                 )
                                             );

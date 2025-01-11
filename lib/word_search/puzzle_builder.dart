@@ -79,7 +79,7 @@ class Placement {
         const lengthLimit = 3;
 
         bool placementsOverlap(Placement a, Placement b) {
-            return a._pointSequence().where((point) => b._containsPoint(point)).length > lengthLimit;
+            return a._pointSequence().where((point) => b.containsPoint(point)).length > lengthLimit;
         }
 
         if (direction case Direction.LEFT || Direction.RIGHT) {
@@ -111,7 +111,7 @@ class Placement {
         return Placement(row: row + dRow, column: column + dColumn, direction: direction, word: word);
     }
 
-    bool _containsPoint((int row, int column) point) {
+    bool containsPoint((int row, int column) point) {
         return _pointSequence().contains(point);
     }
 
