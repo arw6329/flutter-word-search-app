@@ -2,24 +2,23 @@ import 'package:word_search_app/gamemodes/gamemode.dart';
 import 'package:word_search_app/word_search/puzzle_builder.dart';
 import 'package:word_search_app/word_search/wordlist_retrieval.dart';
 
-class ThemedNormalGamemode implements Gamemode {
-    const ThemedNormalGamemode(): super();
+class RandomNormalGamemode implements Gamemode {
+    const RandomNormalGamemode(): super();
     
     @override
-    final String name = 'ThemedNormal';
+    final String name = 'RandomNormal';
 
     @override
     final FillStrategy fillStrategy = FillStrategy.ALPHABETIC;
 
     @override
     Future<({String title, List<String> words})> getNewTitleAndWordlist() async {
-        final wordlist = await retrieveWordsAndThemeFromRandomWordlistFile(
-            wordlistFolder: name,
-            maxLength: 11,
-            minCount: 16,
+        final wordlist = await retrieveWordsFromSingleWordlistFile(
+            file: '$name.txt',
+            minCount: 18,
             maxCount: 20
         );
-        return (title: wordlist.theme, words: wordlist.words);
+        return (title: 'Random Words', words: wordlist);
     }
 
     @override

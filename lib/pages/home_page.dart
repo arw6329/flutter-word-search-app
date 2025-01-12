@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_search_app/banner_ad_page.dart';
 import 'package:word_search_app/gamemodes/numeric_gamemode.dart';
+import 'package:word_search_app/gamemodes/random_normal_gamemode.dart';
 import 'package:word_search_app/gamemodes/themed_normal_gamemode.dart';
 import 'package:word_search_app/large_common_button.dart';
 import 'package:word_search_app/pages/word_search_page.dart';
@@ -56,20 +57,39 @@ class HomePage extends StatelessWidget {
                                             )
                                         ),
                                         LargeCommonButton(
-                                            color: const Color.fromARGB(255, 109, 188, 253),
                                             onPressed: () {
                                                 Navigator.of(context).push(
-                                                    MaterialPageRoute(builder: (context) => BannerAdPage(child: WordSearchPage(gamemode: NumericGamemode())))
+                                                    MaterialPageRoute(builder: (context) => BannerAdPage(child: WordSearchPage(gamemode: RandomNormalGamemode())))
                                                 );
                                             },
                                             child: Row(
                                                 children: [
                                                     Flexible(
                                                         fit: FlexFit.tight,
-                                                        child: Text('Numeric')
+                                                        child: Text('Random Normal')
                                                     ),
                                                     Text('12 x 15')
                                                 ]
+                                            )
+                                        ),
+                                        Container(
+                                            margin: EdgeInsets.only(top: 25),
+                                            child: LargeCommonButton(
+                                                color: const Color.fromARGB(255, 109, 188, 253),
+                                                onPressed: () {
+                                                    Navigator.of(context).push(
+                                                        MaterialPageRoute(builder: (context) => BannerAdPage(child: WordSearchPage(gamemode: NumericGamemode())))
+                                                    );
+                                                },
+                                                child: Row(
+                                                    children: [
+                                                        Flexible(
+                                                            fit: FlexFit.tight,
+                                                            child: Text('Numeric')
+                                                        ),
+                                                        Text('12 x 15')
+                                                    ]
+                                                )
                                             )
                                         )
                                     ]
