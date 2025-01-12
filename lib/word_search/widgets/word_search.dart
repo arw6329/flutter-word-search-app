@@ -35,12 +35,13 @@ class WordSearch extends StatefulWidget {
     final WordSearchPuzzleSerializableState? _initialPuzzleWidgetSerializedState;
 
     @override
-    State<WordSearch> createState() => _WordSearchState();
+    State<WordSearch> createState() => WordSearchState();
 }
 
-class _WordSearchState extends State<WordSearch> {
+class WordSearchState extends State<WordSearch> {
     final Set<String> _solvedWords = {};
     WordSearchPuzzle? _puzzle;
+    final GlobalKey _puzzleKey = GlobalKey();
 
     // prevents regenerating puzzle on redraw
     @override
@@ -49,6 +50,7 @@ class _WordSearchState extends State<WordSearch> {
         if(widget._initialPuzzleWidgetSerializedState != null) {
             _solvedWords.addAll(widget._initialPuzzleWidgetSerializedState!.solvedWords.map((placement) => placement.word));
             _puzzle = WordSearchPuzzle.fromSerializedState(
+                key: _puzzleKey,
                 state: widget._initialPuzzleWidgetSerializedState!,
                 onSolveWord: (word) {
                     setState(() {
@@ -66,6 +68,7 @@ class _WordSearchState extends State<WordSearch> {
             widget.columns = _puzzle!.columns;
         } else {
             _puzzle = WordSearchPuzzle(
+                key: _puzzleKey,
                 rows: widget.rows,
                 columns: widget.columns,
                 words: widget._wordsMap.keys.toList(),
@@ -103,6 +106,10 @@ class _WordSearchState extends State<WordSearch> {
                 )
             ]
         );
+    }
+
+    solve() {
+        (_puzzleKey.currentState as WordSearchPuzzleState).solve();
     }
 }
 

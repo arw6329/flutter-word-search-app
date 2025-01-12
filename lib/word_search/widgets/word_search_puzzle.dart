@@ -42,10 +42,10 @@ class WordSearchPuzzle extends StatefulWidget {
     final int _colorRandomSeed = Random().nextInt(1000000);
 
     @override
-    State<WordSearchPuzzle> createState() => _WordSearchPuzzleState();
+    State<WordSearchPuzzle> createState() => WordSearchPuzzleState();
 }
 
-class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
+class WordSearchPuzzleState extends State<WordSearchPuzzle> {
     final Set<Placement> _solvedWords = {};
 
     int? _activeHighlightStartRow;
@@ -167,10 +167,14 @@ class _WordSearchPuzzleState extends State<WordSearchPuzzle> {
         return _solvedWords.any((placement) => placement.word == word);
     }
 
-    _solve() {
+    solve() {
         setState(() {
-            _solvedWords.addAll(widget._puzzleBuilder.placements
-                .where((placement) => !_isWordSolved(placement.word)));
+            final unsolvedWords = widget._puzzleBuilder.placements.where((placement) => !_isWordSolved(placement.word));
+            for(final placement in unsolvedWords) {
+                _solvedWords.add(placement);
+                widget.onSolveWord(placement.word);
+            }
+            widget.onSolve();
         });
     }
 

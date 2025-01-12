@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                                         LargeCommonButton(
                                             onPressed: () {
                                                 Navigator.of(context).push(
-                                                    MaterialPageRoute(builder: (context) => const WordSearchPage(gamemode: ThemedNormalGamemode()))
+                                                    MaterialPageRoute(builder: (context) => WordSearchPage(gamemode: ThemedNormalGamemode()))
                                                 );
                                             },
                                             child: Row(

@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:word_search_app/confetti/confetti_overlay.dart';
 import 'package:word_search_app/file_writer.dart';
 import 'package:word_search_app/gamemodes/gamemode.dart';
 import 'package:word_search_app/navigation.dart';
@@ -13,9 +15,11 @@ const saveStateDirectory = 'puzzleSaveStates';
 typedef SaveStateOrNewWordList = ({WordSearchPageSerializableState? saveState, ({String title, List<String> words})? wordlist});
 
 class WordSearchPage extends StatelessWidget {
-    const WordSearchPage({super.key, required this.gamemode});
+    WordSearchPage({super.key, required this.gamemode});
 
     final Gamemode gamemode;
+    final GlobalKey _wordSearchKey = GlobalKey();
+    final GlobalKey _confettiKey = GlobalKey();
 
     Future<WordSearchPageSerializableState?> _retrieveSavedState() async {
         if(!await fileExists('$saveStateDirectory/${gamemode.name}')) {
@@ -42,6 +46,16 @@ class WordSearchPage extends StatelessWidget {
         await deleteFile('$saveStateDirectory/${gamemode.name}');
     }
 
+    Future<void> _onSolve(BuildContext context) async {
+        (_confettiKey.currentState as ConfettiOverlayState).fire();
+        Future.delayed(Duration(milliseconds: 1200)).then((_) {
+            if(context.mounted) {
+                showSolvedPuzzleDialog(context, gamemode);
+            }
+        });
+        await _clearSavedState();
+    }
+
     @override
     Widget build(BuildContext context) {
         Future<SaveStateOrNewWordList>
@@ -58,50 +72,54 @@ class WordSearchPage extends StatelessWidget {
             future: savedStateOrNewWordlistFuture(),
             builder: (BuildContext context, AsyncSnapshot<SaveStateOrNewWordList> snapshot) {
                 final title = snapshot.hasData ? (snapshot.data!.saveState?.title ?? snapshot.data!.wordlist!.title) : '';
-                return Scaffold(
-                    appBar: AppBar(
-                        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-                        title: Text(title),
-                        automaticallyImplyLeading: false,
-                        actions: [
-                            IconButton(
-                                onPressed: () {
-                                    clearHistoryAndNavigateToPage(context, const HomePage());
-                                },
-                                tooltip: 'Go home', 
-                                icon: const Icon(Icons.home)
-                            )
-                        ]
-                    ),
-                    body: Center(
-                        child: snapshot.hasData
-                            ? snapshot.data!.saveState != null
-                                ? WordSearch.fromSerializedState(
-                                    state: snapshot.data!.saveState!.wordSearchState,
-                                    onSolve: () async {
-                                        showSolvedPuzzleDialog(context, gamemode);
-                                        await _clearSavedState();
-                                    },
-                                    onSerializedStateChange: (state) async {
-                                        await _saveStateToFile(title, state);
-                                    }
-                                )
-                                : WordSearch(
-                                    rows: 15,
-                                    columns: 12,
-                                    words: snapshot.data!.wordlist!.words,
-                                    onSolve: () async {
-                                        showSolvedPuzzleDialog(context, gamemode);
-                                        await _clearSavedState();
-                                    },
-                                    onSerializedStateChange: (state) async {
-                                        await _saveStateToFile(title, state);
-                                    }
-                                )
-                        : snapshot.hasError
-                            ? Text('Error generating puzzle: ${snapshot.error}')
-                            : Text('Loading puzzle')
-                    )
+                return Stack(
+                    children: [
+                        Scaffold(
+                            appBar: AppBar(
+                                backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                                title: Text(title),
+                                automaticallyImplyLeading: false,
+                                actions: [
+                                    IconButton(
+                                        onPressed: () {
+                                            clearHistoryAndNavigateToPage(context, const HomePage());
+                                        },
+                                        tooltip: 'Go home', 
+                                        icon: const Icon(Icons.home)
+                                    )
+                                ]
+                            ),
+                            body: Center(
+                                child: snapshot.hasData
+                                    ? snapshot.data!.saveState != null
+                                        ? WordSearch.fromSerializedState(
+                                            key: _wordSearchKey,
+                                            state: snapshot.data!.saveState!.wordSearchState,
+                                            onSolve: () { _onSolve(context); },
+                                            onSerializedStateChange: (state) async {
+                                                await _saveStateToFile(title, state);
+                                            }
+                                        )
+                                        : WordSearch(
+                                            key: _wordSearchKey,
+                                            rows: 15,
+                                            columns: 12,
+                                            words: snapshot.data!.wordlist!.words,
+                                            onSolve: () { _onSolve(context); },
+                                            onSerializedStateChange: (state) async {
+                                                await _saveStateToFile(title, state);
+                                            }
+                                        )
+                                : snapshot.hasError
+                                    ? Text('Error generating puzzle: ${snapshot.error}')
+                                    : Text('Loading puzzle')
+                            ),
+                            floatingActionButton: kDebugMode
+                                ? TextButton(onPressed: () { (_wordSearchKey.currentState as WordSearchState).solve(); }, child: Text('Solve puzzle'))
+                                : null
+                        ),
+                        ConfettiOverlay(key: _confettiKey)
+                    ]
                 );
             }
         ); 
