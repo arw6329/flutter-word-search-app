@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:word_search_app/banner_ad_page.dart';
 import 'package:word_search_app/gamemodes/gamemode.dart';
 import 'package:word_search_app/large_common_button.dart';
 import 'package:word_search_app/navigation.dart';
@@ -22,7 +23,7 @@ Future<void> showSolvedPuzzleDialog(BuildContext context, Gamemode currentGamemo
                         children: [
                             LargeCommonButton(
                                 onPressed: () {
-                                    clearHistoryAndNavigateToPage(context, WordSearchPage(gamemode: currentGamemode));
+                                    clearHistoryAndNavigateToPage(context, BannerAdPage(child: WordSearchPage(gamemode: currentGamemode)));
                                 },
                                 child: Row(
                                     children: [
