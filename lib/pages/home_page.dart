@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:word_search_app/gamemodes/numeric_gamemode.dart';
 import 'package:word_search_app/gamemodes/themed_normal_gamemode.dart';
 import 'package:word_search_app/large_common_button.dart';
 import 'package:word_search_app/pages/word_search_page.dart';
@@ -48,6 +49,23 @@ class HomePage extends StatelessWidget {
                                                     Flexible(
                                                         fit: FlexFit.tight,
                                                         child: Text('Themed Normal')
+                                                    ),
+                                                    Text('12 x 15')
+                                                ]
+                                            )
+                                        ),
+                                        LargeCommonButton(
+                                            color: const Color.fromARGB(255, 109, 188, 253),
+                                            onPressed: () {
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(builder: (context) => WordSearchPage(gamemode: NumericGamemode()))
+                                                );
+                                            },
+                                            child: Row(
+                                                children: [
+                                                    Flexible(
+                                                        fit: FlexFit.tight,
+                                                        child: Text('Numeric')
                                                     ),
                                                     Text('12 x 15')
                                                 ]

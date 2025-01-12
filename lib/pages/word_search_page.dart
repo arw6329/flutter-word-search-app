@@ -98,17 +98,20 @@ class WordSearchPage extends StatelessWidget {
                                             onSolve: () { _onSolve(context); },
                                             onSerializedStateChange: (state) async {
                                                 await _saveStateToFile(title, state);
-                                            }
+                                            },
+                                            wordNormalizer: gamemode.wordNormalizer
                                         )
                                         : WordSearch(
                                             key: _wordSearchKey,
                                             rows: 15,
                                             columns: 12,
+                                            fillStrategy: gamemode.fillStrategy,
                                             words: snapshot.data!.wordlist!.words,
                                             onSolve: () { _onSolve(context); },
                                             onSerializedStateChange: (state) async {
                                                 await _saveStateToFile(title, state);
-                                            }
+                                            },
+                                            wordNormalizer: gamemode.wordNormalizer
                                         )
                                 : snapshot.hasError
                                     ? Text('Error generating puzzle: ${snapshot.error}')

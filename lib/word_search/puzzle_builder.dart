@@ -133,11 +133,15 @@ class Placement {
     }
 }
 
+enum FillStrategy {
+    ALPHABETIC, NUMERIC
+}
+
 class PuzzleBuilder {
-    PuzzleBuilder({required this.rows, required this.columns, required words}):
+    PuzzleBuilder({required this.rows, required this.columns, required FillStrategy fillStrategy, required words}):
         _puzzle = List.generate(rows, (_) => List.generate(columns, (_) => null, growable: false), growable: false),
         placements = [] {
-            _buildPuzzle(words);
+            _buildPuzzle(words, fillStrategy);
         }
 
     PuzzleBuilder._fromDeserialized({required this.placements, required List<List<int>> puzzle}):
@@ -217,7 +221,7 @@ class PuzzleBuilder {
         placements.add(placement);
     }
 
-    _buildPuzzle(List<String> words) {
+    _buildPuzzle(List<String> words, FillStrategy fillStrategy) {
         // sort by longest first
         words = words.toList();
         words.sort((a, b) => b.length.compareTo(a.length));
@@ -249,7 +253,10 @@ class PuzzleBuilder {
         for(var row = 0; row < rows; row++) {
             for(var column = 0; column < columns; column++) {
                 if(_puzzle[row][column] == null) {
-                    _puzzle[row][column] = randomLetter().codeUnitAt(0);
+                    _puzzle[row][column] = switch(fillStrategy) {
+                        FillStrategy.ALPHABETIC => randomLetter().codeUnitAt(0),
+                        FillStrategy.NUMERIC => randomDigitString(1).codeUnitAt(0),
+                    };
                 }
             }
         }

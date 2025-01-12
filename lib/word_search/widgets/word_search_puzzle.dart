@@ -8,9 +8,9 @@ import 'package:word_search_app/word_search/puzzle_builder.dart';
 import 'package:word_search_app/word_search/widgets/word_search_highlight.dart';
 
 class WordSearchPuzzle extends StatefulWidget {
-    WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required this.onSolveWord, required this.onSolve, this.onSerializedStateChange}):
+    WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required FillStrategy fillStrategy, required this.onSolveWord, required this.onSolve, this.onSerializedStateChange}):
         _initialSolvedWords = {},
-        _puzzleBuilder = PuzzleBuilder(rows: rows, columns: columns, words: words);
+        _puzzleBuilder = PuzzleBuilder(rows: rows, columns: columns, words: words, fillStrategy: fillStrategy);
 
     WordSearchPuzzle._fromDeserialized({super.key, required PuzzleBuilder puzzleBuilder, required Set<Placement> initialSolvedWords, required this.onSolveWord, required this.onSolve, this.onSerializedStateChange}):
         words = puzzleBuilder.placements.map((placement) => placement.word).toList(),
