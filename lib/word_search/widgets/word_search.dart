@@ -3,40 +3,17 @@ import 'package:word_search_app/word_search/puzzle_builder.dart';
 import 'package:word_search_app/word_search/widgets/word_bank.dart';
 import 'package:word_search_app/word_search/widgets/word_search_puzzle.dart';
 
-// maps normalized words to original word for display
-// for example { 'SOUTHKOREA': 'South Korea' }
-Map<String, String> normalizeWords(List<String> words, String Function(String) wordNormalizer) {
-    return Map.fromEntries(words.map(
-        (word) => MapEntry(
-            wordNormalizer(word),
-            word
-        )
-    ));
-}
-
 class WordSearch extends StatefulWidget {
-    WordSearch({super.key, required this.rows, required this.columns, required List<String> words, required FillStrategy this.fillStrategy, this.onSolve, this.onSerializedStateChange, required this.wordNormalizer}):
-        _initialPuzzleWidgetSerializedState = null,
-        _wordsMap = normalizeWords(words, wordNormalizer);
+    const WordSearch({
+        super.key,
+        required this.initialState,
+        required this.onSolve,
+        required this.onSerializedStateChange
+    });
 
-    WordSearch._fromDeserialized({super.key, required WordSearchSerializableState state, required this.onSolve, required this.onSerializedStateChange, required this.wordNormalizer}):
-        fillStrategy = null,
-        _initialPuzzleWidgetSerializedState = state.internalPuzzleWidgetState,
-        _wordsMap = state.wordsMap;
-
-    factory WordSearch.fromSerializedState({Key? key, required WordSearchSerializableState state, onSolve, void Function(WordSearchSerializableState state)? onSerializedStateChange, required String Function(String) wordNormalizer}) {
-        return WordSearch._fromDeserialized(key: key, state: state, onSolve: onSolve, onSerializedStateChange: onSerializedStateChange, wordNormalizer: wordNormalizer);
-    }
-
-    late final int rows;
-    late final int columns;
-    final Map<String, String> _wordsMap;
-    final FillStrategy? fillStrategy;
     final void Function()? onSolve;
     final void Function(WordSearchSerializableState state)? onSerializedStateChange;
-    final String Function(String) wordNormalizer;
-
-    final WordSearchPuzzleSerializableState? _initialPuzzleWidgetSerializedState;
+    final WordSearchSerializableState initialState;
 
     @override
     State<WordSearch> createState() => WordSearchState();
@@ -51,45 +28,22 @@ class WordSearchState extends State<WordSearch> {
     @override
     void initState() {
         super.initState();
-        if(widget._initialPuzzleWidgetSerializedState != null) {
-            _solvedWords.addAll(widget._initialPuzzleWidgetSerializedState!.solvedWords.map((placement) => placement.word));
-            _puzzle = WordSearchPuzzle.fromSerializedState(
-                key: _puzzleKey,
-                state: widget._initialPuzzleWidgetSerializedState!,
-                onSolveWord: (word) {
-                    setState(() {
-                        _solvedWords.add(word);
-                    });
-                },
-                onSolve: () {
-                    widget.onSolve?.call();
-                },
-                onSerializedStateChange: widget.onSerializedStateChange == null ? null : (state) {
-                    widget.onSerializedStateChange!(WordSearchSerializableState(wordsMap: widget._wordsMap, internalPuzzleWidgetState: state));
-                }
-            );
-            widget.rows = _puzzle!.rows;
-            widget.columns = _puzzle!.columns;
-        } else {
-            _puzzle = WordSearchPuzzle(
-                key: _puzzleKey,
-                rows: widget.rows,
-                columns: widget.columns,
-                words: widget._wordsMap.keys.toList(),
-                fillStrategy: widget.fillStrategy!,
-                onSolveWord: (word) {
-                    setState(() {
-                        _solvedWords.add(word);
-                    });
-                },
-                onSolve: () {
-                    widget.onSolve?.call();
-                },
-                onSerializedStateChange: widget.onSerializedStateChange == null ? null : (state) {
-                    widget.onSerializedStateChange!(WordSearchSerializableState(wordsMap: widget._wordsMap, internalPuzzleWidgetState: state));
-                }
-            );
-        }
+        _solvedWords.addAll(widget.initialState.internalPuzzleWidgetState.solvedWords.map((placement) => placement.word));
+        _puzzle = WordSearchPuzzle(
+            key: _puzzleKey,
+            state: widget.initialState.internalPuzzleWidgetState,
+            onSolveWord: (word) {
+                setState(() {
+                    _solvedWords.add(word);
+                });
+            },
+            onSolve: () {
+                widget.onSolve?.call();
+            },
+            onSerializedStateChange: widget.onSerializedStateChange == null ? null : (state) {
+                widget.onSerializedStateChange!(WordSearchSerializableState(wordsMap: widget.initialState.wordsMap, internalPuzzleWidgetState: state));
+            }
+        );
     }
 
     @override
@@ -105,7 +59,7 @@ class WordSearchState extends State<WordSearch> {
                 Flexible(
                     flex: 0,
                     child: WordBank(
-                        words: widget._wordsMap,
+                        words: widget.initialState.wordsMap,
                         solvedWords: _solvedWords
                     )
                 )
@@ -120,6 +74,9 @@ class WordSearchState extends State<WordSearch> {
 
 class WordSearchSerializableState {
     const WordSearchSerializableState({required this.wordsMap, required this.internalPuzzleWidgetState});
+
+    WordSearchSerializableState.newUnsolved(this.wordsMap, PuzzleBuilder puzzleBuilder):
+        internalPuzzleWidgetState = WordSearchPuzzleSerializableState.newUnsolved(puzzleBuilder);
 
     final Map<String, String> wordsMap;
     final WordSearchPuzzleSerializableState internalPuzzleWidgetState;

@@ -8,31 +8,21 @@ import 'package:word_search_app/word_search/puzzle_builder.dart';
 import 'package:word_search_app/word_search/widgets/word_search_highlight.dart';
 
 class WordSearchPuzzle extends StatefulWidget {
-    WordSearchPuzzle({super.key, required this.rows, required this.columns, required this.words, required FillStrategy fillStrategy, required this.onSolveWord, required this.onSolve, this.onSerializedStateChange}):
-        _initialSolvedWords = {},
-        _puzzleBuilder = PuzzleBuilder(rows: rows, columns: columns, words: words, fillStrategy: fillStrategy);
+    WordSearchPuzzle({
+        super.key,
+        required WordSearchPuzzleSerializableState state,
+        required this.onSolveWord,
+        required this.onSolve,
+        this.onSerializedStateChange
+    }):
+        _puzzleBuilder = state.puzzleBuilder,
+        _initialSolvedWords = state.solvedWords.toSet(),
+        words = state.puzzleBuilder.placements.map((placement) => placement.word).toList();
 
-    WordSearchPuzzle._fromDeserialized({super.key, required PuzzleBuilder puzzleBuilder, required Set<Placement> initialSolvedWords, required this.onSolveWord, required this.onSolve, this.onSerializedStateChange}):
-        words = puzzleBuilder.placements.map((placement) => placement.word).toList(),
-        rows = puzzleBuilder.rows,
-        columns = puzzleBuilder.columns,
-        _puzzleBuilder = puzzleBuilder,
-        _initialSolvedWords = initialSolvedWords;
-
-    factory WordSearchPuzzle.fromSerializedState({Key? key, required WordSearchPuzzleSerializableState state, required onSolveWord, required onSolve, void Function(WordSearchPuzzleSerializableState state)? onSerializedStateChange}) {
-        return WordSearchPuzzle._fromDeserialized(
-            key: key,
-            puzzleBuilder: state.puzzleBuilder,
-            initialSolvedWords: state.solvedWords.toSet(),
-            onSolveWord: onSolveWord,
-            onSolve: onSolve,
-            onSerializedStateChange: onSerializedStateChange
-        );
-    }
-
-    final int rows;
-    final int columns;
+    int get rows => _puzzleBuilder.rows;
+    int get columns => _puzzleBuilder.columns;
     final List<String> words;
+
     final void Function(String word) onSolveWord;
     final void Function() onSolve;
     final void Function(WordSearchPuzzleSerializableState state)? onSerializedStateChange;
@@ -240,6 +230,9 @@ class WordSearchPuzzleState extends State<WordSearchPuzzle> {
 
 class WordSearchPuzzleSerializableState {
     const WordSearchPuzzleSerializableState({required this.solvedWords, required this.puzzleBuilder});
+
+    const WordSearchPuzzleSerializableState.newUnsolved(this.puzzleBuilder):
+        solvedWords = const [];
 
     final List<Placement> solvedWords;
     final PuzzleBuilder puzzleBuilder;

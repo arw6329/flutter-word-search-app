@@ -5,6 +5,16 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:word_search_app/util/random.dart';
 
+class WordSearchGenerationException implements Exception {
+    String cause;
+    WordSearchGenerationException(this.cause);
+
+    @override
+    String toString() {
+        return cause;
+    }
+}
+
 enum Direction {
     LEFT(-1, 0), RIGHT(1, 0), UP(0, -1), DOWN(0, 1), LEFT_UP(-1, -1), LEFT_DOWN(-1, 1), RIGHT_UP(1, -1), RIGHT_DOWN(1, 1);
 
@@ -138,7 +148,7 @@ enum FillStrategy {
 }
 
 class PuzzleBuilder {
-    PuzzleBuilder({required this.rows, required this.columns, required FillStrategy fillStrategy, required words}):
+    PuzzleBuilder({required this.rows, required this.columns, required FillStrategy fillStrategy, required List<String> words}):
         _puzzle = List.generate(rows, (_) => List.generate(columns, (_) => null, growable: false), growable: false),
         placements = [] {
             _buildPuzzle(words, fillStrategy);
@@ -244,7 +254,7 @@ class PuzzleBuilder {
             }
 
             if(bestPlacement == null || bestPlacementScore == 0) {
-                throw Exception('Could not place word $word');
+                throw WordSearchGenerationException('Could not place word $word');
             }
 
             _writePlacement(bestPlacement);

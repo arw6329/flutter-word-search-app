@@ -8,11 +8,11 @@ import 'package:word_search_app/gamemodes/gamemode.dart';
 import 'package:word_search_app/navigation.dart';
 import 'package:word_search_app/pages/home_page.dart';
 import 'package:word_search_app/solved_puzzle_dialog.dart';
+import 'package:word_search_app/word_search/puzzle_builder.dart';
 import 'package:word_search_app/word_search/widgets/word_search.dart';
+import 'package:word_search_app/word_search/word_normalizer.dart';
 
 const saveStateDirectory = 'puzzleSaveStates';
-
-typedef SaveStateOrNewWordList = ({WordSearchPageSerializableState? saveState, ({String title, List<String> words})? wordlist});
 
 class WordSearchPage extends StatelessWidget {
     WordSearchPage({super.key, required this.gamemode});
@@ -58,20 +58,42 @@ class WordSearchPage extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        Future<SaveStateOrNewWordList>
-        savedStateOrNewWordlistFuture() async {
+        Future<WordSearchPageSerializableState> getSavedOrNewState() async {
             final saveState = await _retrieveSavedState();
             if(saveState != null) {
-                return (saveState: saveState, wordlist: null);
+                return saveState;
             } else {
-                return (saveState: null, wordlist: await gamemode.getNewTitleAndWordlist());
+                const maxAttempts = 10;
+                for(var attempts = 0; attempts < maxAttempts; attempts++) {
+                    try {
+                        final titleAndWordlist = await gamemode.getNewTitleAndWordlist();
+                        final normalizedWords = normalizeWords(titleAndWordlist.words, gamemode.wordNormalizer);
+
+                        final puzzle = PuzzleBuilder(
+                            rows: 15,
+                            columns: 12,
+                            fillStrategy: gamemode.fillStrategy,
+                            words: normalizedWords.keys.toList()
+                        );
+
+                        final wordSearchState = WordSearchSerializableState.newUnsolved(normalizedWords, puzzle);
+
+                        return WordSearchPageSerializableState(
+                            title: titleAndWordlist.title,
+                            wordSearchState: wordSearchState
+                        );
+                    } on WordSearchGenerationException catch (exception) {
+                        debugPrint('Word search generation failed with error: $exception');
+                    }
+                }
+                throw Exception('Failed to generate puzzle after $maxAttempts attempts');
             }
         }
 
         return FutureBuilder(
-            future: savedStateOrNewWordlistFuture(),
-            builder: (BuildContext context, AsyncSnapshot<SaveStateOrNewWordList> snapshot) {
-                final title = snapshot.hasData ? (snapshot.data!.saveState?.title ?? snapshot.data!.wordlist!.title) : '';
+            future: getSavedOrNewState(),
+            builder: (BuildContext context, AsyncSnapshot<WordSearchPageSerializableState> snapshot) {
+                final title = snapshot.hasData ? (snapshot.data!.title) : '';
                 return Stack(
                     children: [
                         Scaffold(
@@ -91,28 +113,14 @@ class WordSearchPage extends StatelessWidget {
                             ),
                             body: Center(
                                 child: snapshot.hasData
-                                    ? snapshot.data!.saveState != null
-                                        ? WordSearch.fromSerializedState(
-                                            key: _wordSearchKey,
-                                            state: snapshot.data!.saveState!.wordSearchState,
-                                            onSolve: () { _onSolve(context); },
-                                            onSerializedStateChange: (state) async {
-                                                await _saveStateToFile(title, state);
-                                            },
-                                            wordNormalizer: gamemode.wordNormalizer
-                                        )
-                                        : WordSearch(
-                                            key: _wordSearchKey,
-                                            rows: 15,
-                                            columns: 12,
-                                            fillStrategy: gamemode.fillStrategy,
-                                            words: snapshot.data!.wordlist!.words,
-                                            onSolve: () { _onSolve(context); },
-                                            onSerializedStateChange: (state) async {
-                                                await _saveStateToFile(title, state);
-                                            },
-                                            wordNormalizer: gamemode.wordNormalizer
-                                        )
+                                    ? WordSearch(
+                                        key: _wordSearchKey,
+                                        initialState: snapshot.data!.wordSearchState,
+                                        onSolve: () { _onSolve(context); },
+                                        onSerializedStateChange: (state) async {
+                                            await _saveStateToFile(title, state);
+                                        }
+                                    )
                                 : snapshot.hasError
                                     ? Text('Error generating puzzle: ${snapshot.error}')
                                     : Text('Loading puzzle')

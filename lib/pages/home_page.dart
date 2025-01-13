@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:word_search_app/banner_ad_page.dart';
+import 'package:word_search_app/gamemodes/debug_impossible_gamemode.dart';
 import 'package:word_search_app/gamemodes/numeric_gamemode.dart';
 import 'package:word_search_app/gamemodes/random_normal_gamemode.dart';
 import 'package:word_search_app/gamemodes/themed_normal_gamemode.dart';
@@ -88,6 +90,25 @@ class HomePage extends StatelessWidget {
                                                             child: Text('Numeric')
                                                         ),
                                                         Text('12 x 15')
+                                                    ]
+                                                )
+                                            )
+                                        ),
+                                        if(kDebugMode) Container(
+                                            margin: EdgeInsets.only(top: 25),
+                                            child: LargeCommonButton(
+                                                solid: false,
+                                                onPressed: () {
+                                                    Navigator.of(context).push(
+                                                        MaterialPageRoute(builder: (context) => BannerAdPage(child: WordSearchPage(gamemode: ImpossibleToGenerateGamemode())))
+                                                    );
+                                                },
+                                                child: Row(
+                                                    children: [
+                                                        Flexible(
+                                                            fit: FlexFit.tight,
+                                                            child: Text('Buggy Generation Test')
+                                                        )
                                                     ]
                                                 )
                                             )
