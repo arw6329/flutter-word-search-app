@@ -21,85 +21,104 @@ class WordSearchPage extends StatelessWidget {
     final GlobalKey _wordSearchKey = GlobalKey();
     final GlobalKey _confettiKey = GlobalKey();
 
-    Future<WordSearchPageSerializableState?> _retrieveSavedState() async {
+    Future<WordSearchPageSerializableState> _getSavedOrNewState() async {
+        late final Map<String, dynamic> saveData;
         if(!await fileExists('$saveStateDirectory/${gamemode.name}')) {
-            return null;
+            saveData = {
+                'index': 1,
+                'title': null,
+                'wordSearchState': null
+            };
+        } else {
+            saveData = jsonDecode(await readFile('$saveStateDirectory/${gamemode.name}'));
         }
-        return WordSearchPageSerializableState.fromJson(
-            jsonDecode(await readFile('$saveStateDirectory/${gamemode.name}'))
-        );
+
+        if(saveData['title'] == null || saveData['wordSearchState'] == null) {
+            const maxAttempts = 10;
+            for(var attempts = 0; attempts < maxAttempts; attempts++) {
+                try {
+                    final titleAndWordlist = await gamemode.getNewTitleAndWordlist();
+                    final normalizedWords = normalizeWords(titleAndWordlist.words, gamemode.wordNormalizer);
+
+                    final puzzle = PuzzleBuilder(
+                        rows: 15,
+                        columns: 12,
+                        fillStrategy: gamemode.fillStrategy,
+                        words: normalizedWords.keys.toList()
+                    );
+
+                    final wordSearchState = WordSearchSerializableState.newUnsolved(normalizedWords, puzzle);
+
+                    return WordSearchPageSerializableState(
+                        index: saveData['index'],
+                        title: titleAndWordlist.title,
+                        wordSearchState: wordSearchState
+                    );
+                } on WordSearchGenerationException catch (exception) {
+                    debugPrint('Word search generation failed with error: $exception');
+                }
+            }
+            throw Exception('Failed to generate puzzle after $maxAttempts attempts');
+        } else {
+            return WordSearchPageSerializableState.fromJson(saveData);
+        }
     }
 
-    Future<void> _saveStateToFile(String title, WordSearchSerializableState internalState) async {
+    Future<void> _saveStateToFile(int index, String title, WordSearchSerializableState internalState) async {
         if(!await directoryExists(saveStateDirectory)) {
             await mkdir(saveStateDirectory);
         }
         await writeFile('$saveStateDirectory/${gamemode.name}', jsonEncode(
             WordSearchPageSerializableState(
+                index: index,
                 title: title,
                 wordSearchState: internalState
             )
         ));
     }
 
-    Future<void> _clearSavedState() async {
-        await deleteFile('$saveStateDirectory/${gamemode.name}');
+    Future<void> _saveIndexOnlyToFile(int index) async {
+        await writeFile('$saveStateDirectory/${gamemode.name}', jsonEncode({
+            'index': index
+        }));
     }
 
-    Future<void> _onSolve(BuildContext context) async {
+    Future<void> _onSolve(BuildContext context, int nextIndex) async {
         (_confettiKey.currentState as ConfettiOverlayState).fire();
         Future.delayed(Duration(milliseconds: 1200)).then((_) {
             if(context.mounted) {
                 showSolvedPuzzleDialog(context, gamemode);
             }
         });
-        await _clearSavedState();
+        await _saveIndexOnlyToFile(nextIndex);
     }
 
     @override
     Widget build(BuildContext context) {
-        Future<WordSearchPageSerializableState> getSavedOrNewState() async {
-            final saveState = await _retrieveSavedState();
-            if(saveState != null) {
-                return saveState;
-            } else {
-                const maxAttempts = 10;
-                for(var attempts = 0; attempts < maxAttempts; attempts++) {
-                    try {
-                        final titleAndWordlist = await gamemode.getNewTitleAndWordlist();
-                        final normalizedWords = normalizeWords(titleAndWordlist.words, gamemode.wordNormalizer);
-
-                        final puzzle = PuzzleBuilder(
-                            rows: 15,
-                            columns: 12,
-                            fillStrategy: gamemode.fillStrategy,
-                            words: normalizedWords.keys.toList()
-                        );
-
-                        final wordSearchState = WordSearchSerializableState.newUnsolved(normalizedWords, puzzle);
-
-                        return WordSearchPageSerializableState(
-                            title: titleAndWordlist.title,
-                            wordSearchState: wordSearchState
-                        );
-                    } on WordSearchGenerationException catch (exception) {
-                        debugPrint('Word search generation failed with error: $exception');
-                    }
-                }
-                throw Exception('Failed to generate puzzle after $maxAttempts attempts');
-            }
-        }
-
         return FutureBuilder(
-            future: getSavedOrNewState(),
+            future: _getSavedOrNewState(),
             builder: (BuildContext context, AsyncSnapshot<WordSearchPageSerializableState> snapshot) {
-                final title = snapshot.hasData ? (snapshot.data!.title) : '';
+                final title = snapshot.hasData ? snapshot.data!.title : '';
+                final index = snapshot.hasData ? snapshot.data!.index : 1;
                 return Stack(
                     children: [
                         Scaffold(
                             appBar: AppBar(
                                 backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-                                title: Text(title),
+                                title: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                                    textBaseline: TextBaseline.alphabetic,
+                                    children: snapshot.hasData ? [
+                                        Text(title),
+                                        Container(
+                                            margin: EdgeInsets.only(left: 1),
+                                            child: Text(
+                                                'Puzzle $index',
+                                                style: TextStyle(fontSize: 13)
+                                            )
+                                        )
+                                    ] : []
+                                ),
                                 automaticallyImplyLeading: false,
                                 actions: [
                                     IconButton(
@@ -116,9 +135,9 @@ class WordSearchPage extends StatelessWidget {
                                     ? WordSearch(
                                         key: _wordSearchKey,
                                         initialState: snapshot.data!.wordSearchState,
-                                        onSolve: () { _onSolve(context); },
+                                        onSolve: () { _onSolve(context, index + 1); },
                                         onSerializedStateChange: (state) async {
-                                            await _saveStateToFile(title, state);
+                                            await _saveStateToFile(index, title, state);
                                         }
                                     )
                                 : snapshot.hasError
@@ -138,18 +157,21 @@ class WordSearchPage extends StatelessWidget {
 }
 
 class WordSearchPageSerializableState {
-    WordSearchPageSerializableState({required this.title, required this.wordSearchState});
+    WordSearchPageSerializableState({required this.index, required this.title, required this.wordSearchState});
 
+    final int index;
     final String title;
     final WordSearchSerializableState wordSearchState;
 
     Map toJson() => {
+        'index': index,
         'title': title,
         'wordSearchState': wordSearchState
     };
 
     factory WordSearchPageSerializableState.fromJson(Map<String, dynamic> jsonObject) {
         return WordSearchPageSerializableState(
+            index: jsonObject['index'],
             title: jsonObject['title'],
             wordSearchState: WordSearchSerializableState.fromJson(jsonObject['wordSearchState'])
         );
