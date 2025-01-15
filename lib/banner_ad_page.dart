@@ -8,6 +8,8 @@ class BannerAdPage extends StatefulWidget {
 
     final Widget child;
 
+    static const bool adsEnabled = String.fromEnvironment('ADS_ENABLED', defaultValue: 'true') == 'true';
+
     @override
     State<BannerAdPage> createState() => _BannerAdPageState();
 }
@@ -20,11 +22,14 @@ class _BannerAdPageState extends State<BannerAdPage> {
     void initState() {
         super.initState();
         WidgetsBinding.instance.addPostFrameCallback((_) {
-            _loadAd();
+            if(BannerAdPage.adsEnabled) {
+                _loadAd();
+            }
         });
     }
 
     Future<void> _loadAd() async {
+        // TODO: test ids only, replace with production ones
         final adUnitId = Platform.isAndroid
             ? 'ca-app-pub-3940256099942544/9214589741'
             : 'ca-app-pub-3940256099942544/2435281174';
