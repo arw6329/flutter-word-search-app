@@ -8,12 +8,14 @@ I planned to release the app to the Play Store, but Google made changes to indiv
 
 ## Images
 
-![Homepage](/docs/images/homepage.jpg)
-![Themed gamemode puzzle](/docs/images/themed-puzzle.jpg)
-![Random words gamemode puzzle](/docs/images/random-puzzle.jpg)
-![Puzzle being completed](/docs/images/puzzle-solve.gif)
-![Completed random words gamemode puzzle](/docs/images/puzzle-complete.jpg)
-![Numeric gamemode puzzle](/docs/images/numeric-puzzle.jpg)
+<p float="left">
+  <img width="200" title="Homepage" src="/docs/images/homepage.jpg">
+  <img width="200" title="Themed gamemode puzzle" src="/docs/images/themed-puzzle.jpg">
+  <img width="200" title="Random words gamemode puzzle" src="/docs/images/random-puzzle.jpg">
+  <img width="200" title="Puzzle being completed" src="/docs/images/puzzle-solve.gif">
+  <img width="200" title="Completed random words gamemode puzzle" src="/docs/images/puzzle-complete.jpg">
+  <img width="200" title="Numeric gamemode puzzle" src="/docs/images/numeric-puzzle.jpg">
+</p>
 
 ## Features
 
